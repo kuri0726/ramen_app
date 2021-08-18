@@ -1,0 +1,146 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$shadow1: 0 5px 5px black;
+$shadow2: 1px 0 5px black;
+$my-orange: rgb(253, 220, 130);
+
+li{
+  list-style: none;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+}
+
+.container {
+  width: 1300px;
+  margin:0 auto;
+}
+// header
+
+header {
+  background-color: $my-orange;
+  height: 70px;
+  .header-links{
+    .links-left{
+      float: left;
+    }
+    .links-right {
+      padding-top: 50px;
+    }a{
+      margin: 0 20px;
+      display: inline-block;
+      float: right;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+}
+
+.logo {
+  margin: 10px;
+}
+
+
+.home {
+  position: relative;
+  background-color: $my-orange;
+  margin: 0 auto;
+  width: 2000px;
+  img {
+    width: 100%;
+    opacity: 0.7;
+  }
+}
+
+.app-top {
+  position: 0;
+  color: white;
+  font-family:monospace;
+  position: absolute;
+  top: 80px;
+  padding: 100px 0 200px;
+  width: 1300px;
+  text-align: center;
+  margin-top: 100px;
+  p {
+    text-shadow:$shadow1;
+    font-size: 23px;
+    font-weight: bold;
+  }
+  h1{
+    text-shadow:$shadow1;
+    font-weight: bold;
+    font-size: 60px;
+  }
+ 
+  h3{
+    text-shadow:$shadow2;
+    font-size: 40px;
+  }
+  .app-top-info{
+    width: 1000px;
+    margin:130px auto 0 auto;
+    p {
+      text-shadow:$shadow2;
+      font-size: 28px;
+    } 
+  }
+}
+
+.singup{
+  margin-top: 50px;
+}
+
+.btn {
+  color: white;
+  text-shadow:$shadow2;
+  border:1px solid #086677;
+  display: block;
+  background-color: #0099B5;
+  box-sizing: border-box;
+  width: 250px;
+  height: 70px;
+  padding: 0;
+  margin: 30px auto;
+  text-align: center;
+  line-height: 70px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight:bold;
+  border-radius: 7px;
+  box-shadow: 0 5px #086677;
+  &:hover {
+    color: white;
+    filter: brightness(85%);
+  }
+  &:active{
+    position: relative;
+    top: 5px;
+  }
+}
+
+footer{
+  height: 200px;
+  background-color: rgb(169, 169, 169);
+  text-align: center;
+  >.container{
+    padding-top: 30px;
+  }
+  .footer_links{
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    li {
+      margin: 0;
+      // padding:0 10px;
+      border-left: 1px solid black;
+      padding:0 10px;
+    }
+    >:last-child{
+      border-right: 1px solid black;
+    }
+  }
+}
