@@ -40,6 +40,7 @@ gem 'faker',                   '2.1.2'
 gem 'will_paginate',           '3.1.8'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'rake', '13.0.6'
+gem 'rails-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

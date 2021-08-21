@@ -14,22 +14,55 @@ a{
   text-decoration: none;
 }
 
+.top_text{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.empty-space{
+  height: 30px;
+}
+
 .container {
   width: 1300px;
   margin:0 auto;
 }
+
+.alert {
+  margin: 30px auto 0 auto;
+  text-align: center;
+  line-height: 40px;
+  box-sizing:content-box;
+  width: 350px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.alert.alert-success {
+  color: rgb(2, 160, 49);
+  border: 2px solid rgb(9, 255, 0);
+  background-color: rgb(139, 245, 174);
+}
+
+.alert.alert-danger {
+  color: rgb(160, 2, 2);
+  border: 2px solid red;
+  background-color: rgb(245, 139, 139);
+}
+
 // header
 
 header {
   background-color: $my-orange;
-  height: 70px;
+  height: 80px;
   .header-links{
     .links-left{
       float: left;
     }
     .links-right {
-      padding-top: 50px;
-    }a{
+      padding-top: 55px;
+    }
+    a{
       margin: 0 20px;
       display: inline-block;
       float: right;
@@ -43,11 +76,19 @@ header {
   margin: 10px;
 }
 
+//error_message
+div.field_with_errors {
+  background-color: rgb(245, 63, 63);
+  padding: 2px;
+  border-radius: 0.3px;
+}
+
+//home
 
 .home {
   position: relative;
   background-color: $my-orange;
-  margin: 0 auto;
+  margin: -20px auto 0;
   width: 2000px;
   img {
     width: 100%;
@@ -86,6 +127,7 @@ header {
     p {
       text-shadow:$shadow2;
       font-size: 28px;
+      text-decoration: underline;
     } 
   }
 }
@@ -121,6 +163,37 @@ header {
     top: 5px;
   }
 }
+
+//新規登録画面
+//ログイン画面
+
+.input-form{
+  width: 50%;
+  margin: 50px auto;
+  .input-submit {
+    text-align: center;
+    padding: 30px 0;
+  }
+}
+
+//マイページ
+
+.profile {
+  margin: 20px 0 30px 0;
+  display: flex;
+  .icon {
+    margin: 0 10px;
+    box-sizing: border-box;
+    border: 3px solid rgb(63, 61, 61);
+    border-radius: 50%;
+  }
+  h1 {
+    margin: 0px;
+    line-height: 69px;
+  }
+}
+
+//footer
 
 footer{
   height: 200px;

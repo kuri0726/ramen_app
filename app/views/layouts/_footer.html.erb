@@ -1,7 +1,15 @@
 <footer>
   <div class="container">
-    <%= link_to root_path do %>
-      <img src ="footer-image.png" class = "logo" width = "220" height = "50">
+    <% if session[:user_id] == nil %>
+      <%= link_to root_path do %>
+        <%= link_to image_tag('/footer-image.png', alt: "Ramen logo", width: "220px", height:"50px", class: "logo"),
+                      root_path %>
+      <% end %>
+    <% else %>
+      <%= link_to root_path do %>
+        <%= link_to image_tag('/footer-image.png', alt: "Ramen logo", width: "220px", height:"50px", class: "logo"),
+                    user_path(@user) %>
+      <% end %>
     <% end %>
     <ul class = "footer_links">
       <li class = "footer-link"><%= link_to "トップ", "#" %></li>

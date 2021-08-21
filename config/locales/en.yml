@@ -31,3 +31,12 @@
 
 en:
   hello: "Hello world"
+
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: ユーザーネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用のパスワード

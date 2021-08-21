@@ -1,0 +1,23 @@
+<% provide(:top_text, "ーログインー") %>
+<div class = "container">
+  <div class = "input-form">
+    <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+      <%= render 'shared/error_message'%>
+
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <p>&nbsp;</p>
+      
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <p>※半角6~12文字英大文字・小文字・数字それぞれ１文字以上含む必要があります。</p>
+
+      <div class = "input-submit">
+        <%= f.submit "ログイン" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
