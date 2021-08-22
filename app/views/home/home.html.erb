@@ -17,23 +17,21 @@
       <p>→曜日・時間帯ごとの待ち時間が一目で分かる</p>
       <p>→食べたラーメンをレビューできる</p>
     </div>
-    <div class = "singup">
-      <h3>さっそくユーザー登録して</h3>
-      <h3>快適なラーメンライフをおくろう！！</h3>
-      <div class = "signup-btn">
-        <a href = "/signup" class = "btn">ユーザー登録する</a>
+    <div class = "app-top-links">
+      <div class = "app-top-link">
+        <h3>さっそくユーザー登録して</h3>
+        <h3>快適なラーメンライフをおくろう！！</h3>
+        <div class = "signup-link">
+          <%= link_to "ユーザー登録する", "/signup", class: "btn signup-btn" %>
+        </div>
       </div>
-    </div>
-    <%
-=begin%>
- <div class = "login">
-      <h3>さっそくユーザー登録して</h3>
-      <h3>快適なラーメンライフをおくろう！！</h3>
-      <div class = "signup-btn">
-        <a href = "/signup" class = "btn">ユーザー登録する</a>
+      <div class = "app-top-link">
+        <h3>すでに登録済みの方は</h3>
+        <h3>こちら！！</h3>
+        <div class = "user-page-link">
+          <%= link_to "ユーザーページへ", session[:user_id] == nil ? login_path : user_path(@user), class: "btn user-page-btn" %>
+        </div>
       </div>
-    </div> 
-<%
-=end%>
+    </div>  
   </div>
 </div>

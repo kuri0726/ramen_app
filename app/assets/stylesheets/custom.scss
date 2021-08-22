@@ -116,44 +116,51 @@ div.field_with_errors {
     font-weight: bold;
     font-size: 60px;
   }
- 
   h3{
     text-shadow:$shadow2;
-    font-size: 40px;
+    font-size: 30px;
   }
   .app-top-info{
     width: 1000px;
-    margin:130px auto 0 auto;
+    margin:100px auto 0 auto;
     p {
       text-shadow:$shadow2;
       font-size: 28px;
       text-decoration: underline;
     } 
   }
+  .app-top-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    .app-top-link{
+      width: 47%;
+      background-color: rgba(165, 87, 42, 0.7);
+      border-radius: 20px;
+      box-sizing: border-box;
+      border:double 5px rgba(148, 68, 21, 0.7);
+      padding: 0.5em 1em;
+      margin: 2em 0;
+    }
+  }
 }
 
-.singup{
-  margin-top: 50px;
-}
 
 .btn {
   color: white;
   text-shadow:$shadow2;
-  border:1px solid #086677;
   display: block;
-  background-color: #0099B5;
   box-sizing: border-box;
-  width: 250px;
-  height: 70px;
+  width: 200px;
+  height: 60px;
   padding: 0;
   margin: 30px auto;
   text-align: center;
-  line-height: 70px;
+  line-height: 60px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight:bold;
   border-radius: 7px;
-  box-shadow: 0 5px #086677;
   &:hover {
     color: white;
     filter: brightness(85%);
@@ -162,6 +169,17 @@ div.field_with_errors {
     position: relative;
     top: 5px;
   }
+}
+
+.signup-btn {
+  background-color: #00b500;
+  border:1px solid #087729;
+  box-shadow: 0 5px #087717;
+}
+.user-page-btn {
+  background-color: #0099B5;
+  border:1px solid #086677;
+  box-shadow: 0 5px #086677;
 }
 
 //新規登録画面

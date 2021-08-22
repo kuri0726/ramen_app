@@ -1,16 +1,9 @@
 <footer>
   <div class="container">
-    <% if session[:user_id] == nil %>
-      <%= link_to root_path do %>
-        <%= link_to image_tag('/footer-image.png', alt: "Ramen logo", width: "220px", height:"50px", class: "logo"),
-                      root_path %>
-      <% end %>
-    <% else %>
-      <%= link_to root_path do %>
-        <%= link_to image_tag('/footer-image.png', alt: "Ramen logo", width: "220px", height:"50px", class: "logo"),
-                    user_path(@user) %>
-      <% end %>
-    <% end %>
+    <%= link_to root_path do %>
+          <%= link_to image_tag('/footer-image.png', alt: "Ramen logo", width: "220px", height:"50px", class: "logo"),
+                        session[:user_id] == nil ? root_path : user_path(@user) %>
+        <% end %>
     <ul class = "footer_links">
       <li class = "footer-link"><%= link_to "トップ", "#" %></li>
       <li class = "footer-link"><%= link_to "検索", "#" %></li>
