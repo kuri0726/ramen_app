@@ -12,7 +12,10 @@
       <%= f.label :password, "パスワード" %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <p>※半角6~12文字英大文字・小文字・数字それぞれ１文字以上含む必要があります。</p>
+      <%= f.label :remember_me, class: "checkbox" do %>
+        <%= f.check_box :remember_me %>
+        <span>ログインしたままにする。</span>
+      <% end %>
 
       <div class = "input-submit">
         <%= f.submit "ログイン" %>

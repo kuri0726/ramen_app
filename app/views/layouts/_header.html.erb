@@ -4,13 +4,13 @@
       <div class = "links-left">
         <%= link_to root_path do %>
           <%= link_to image_tag('/logo.png', alt: "Ramen logo", width: "220px", height:"50px", class: "logo"),
-                        session[:user_id] == nil ? root_path : user_path(@user) %>
+                        @current_user == nil ? root_path : user_path(@current_user) %>
         <% end %>
       </div>
       <div class = "links-right">
         <ul>
-          <% if session[:user_id] != nil %>
-            <li class = "link"><%= link_to "マイページ", user_path(@user) %></li>
+          <% if @current_user != nil %>
+            <li class = "link"><%= link_to "マイページ", user_path(@current_user) %></li>
             <li class = "link"><%= link_to "ログアウト", logout_path %></li>
           <% else %>
             <li class = "link"><%= link_to "ログイン", login_path %></li>

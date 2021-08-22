@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_21_120342) do
+ActiveRecord::Schema.define(version: 2021_08_22_035354) do
 
   create_table "stores", force: :cascade do |t|
     t.string "store_name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2021_08_21_120342) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
     t.string "image_name"
+    t.string "remember_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

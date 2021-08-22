@@ -29,7 +29,7 @@
         <h3>すでに登録済みの方は</h3>
         <h3>こちら！！</h3>
         <div class = "user-page-link">
-          <%= link_to "ユーザーページへ", session[:user_id] == nil ? login_path : user_path(@user), class: "btn user-page-btn" %>
+          <%= link_to "ユーザーページへ", @current_user == nil ? login_path : user_path(@current_user), class: "btn user-page-btn" %>
         </div>
       </div>
     </div>  

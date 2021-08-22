@@ -138,7 +138,7 @@ div.field_with_errors {
       background-color: rgba(165, 87, 42, 0.7);
       border-radius: 20px;
       box-sizing: border-box;
-      border:double 5px rgba(148, 68, 21, 0.7);
+      border:double 7px rgba(148, 68, 21, 0.7);
       padding: 0.5em 1em;
       margin: 2em 0;
     }
@@ -191,6 +191,10 @@ div.field_with_errors {
   .input-submit {
     text-align: center;
     padding: 30px 0;
+  }
+  .checkbox{
+    margin-top: 20px;
+    padding-left: 20px;
   }
 }
 
