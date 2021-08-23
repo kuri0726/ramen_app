@@ -2,7 +2,7 @@
 <div class = "container">
   <div class = "input-form">
     <%= form_with(model: @user, local: true) do |f| %>
-      <%= render 'shared/error_message'%>
+
       <%= f.label :name, "ユーザーネーム" %>
       <%= f.text_field :name, class: 'form-control' %>
       <% if @user.errors.include?(:name) %>
@@ -36,5 +36,6 @@
       </div>
 
     <% end %>
+    
   </div>
 </div>

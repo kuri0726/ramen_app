@@ -5,6 +5,10 @@ $shadow1: 0 5px 5px black;
 $shadow2: 1px 0 5px black;
 $my-orange: rgb(253, 220, 130);
 
+body {
+  background-color: whitesmoke;
+}
+
 li{
   list-style: none;
 }
@@ -16,7 +20,7 @@ a{
 
 .top_text{
   text-align: center;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .empty-space{
@@ -26,6 +30,7 @@ a{
 .container {
   width: 1300px;
   margin:0 auto;
+  background-color: white;
 }
 
 .alert {
@@ -55,6 +60,9 @@ a{
 header {
   background-color: $my-orange;
   height: 80px;
+  >.container {
+    background-color: $my-orange;
+  }
   .header-links{
     .links-left{
       float: left;
@@ -72,6 +80,11 @@ header {
   }
 }
 
+.raimon {
+  display: flex;
+  margin-top: -5px;
+}
+
 .logo {
   margin: 10px;
 }
@@ -86,9 +99,9 @@ div.field_with_errors {
 //home
 
 .home {
-  position: relative;
+
   background-color: $my-orange;
-  margin: -20px auto 0;
+  margin: -17px auto 0 auto;
   width: 2000px;
   img {
     width: 100%;
@@ -200,8 +213,13 @@ div.field_with_errors {
 
 //マイページ
 
-.profile {
-  margin: 20px 0 30px 0;
+.profile{
+  width: 80%;
+  margin: 0 auto 30px auto;
+}
+
+.profile-info {
+  margin: 20px 0 10px 0;
   display: flex;
   .icon {
     margin: 0 10px;
@@ -210,19 +228,50 @@ div.field_with_errors {
     border-radius: 50%;
   }
   h1 {
+    font-size: 50px;
     margin: 0px;
-    line-height: 69px;
+    line-height: 100px;
+  }
+}
+
+.edit-link {
+  margin-left: 15px;
+  color: white;
+  text-shadow:$shadow2;
+  display: block;
+  box-sizing: border-box;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight:bold;
+  border-radius: 7px;
+  background-color: #b5a900;
+  border:1px solid #777008;
+  box-shadow: 0 3px #775908;
+  &:hover {
+    color: white;
+    filter: brightness(85%);
+  }
+  &:active{
+    position: relative;
+    top: 3px;
+    box-shadow: none;
   }
 }
 
 //footer
 
 footer{
+  margin-top: 5px;
   height: 200px;
   background-color: rgb(169, 169, 169);
   text-align: center;
   >.container{
     padding-top: 30px;
+    background-color: rgb(169, 169, 169);
   }
   .footer_links{
     margin: 20px auto;

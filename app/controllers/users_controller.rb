@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :logged_in_user, {only: [:edit, :update, :show]}
+  before_action :corrent_user, {only: [:edit, :update]}
 
   def show
     @user = User.find(session[:user_id])
@@ -8,6 +9,13 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    if logged_in?
+      @user = User.find_by(id: session[:user_id])
+      flash[:danger] = "すでにログインしています。"
+      redirect_to @user
+    else
+      @user = User.new
+    end
   end
 
   def create
@@ -50,10 +58,21 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(session[:user_id])
   end
-
+  
   def update
+    if params[:user][:user_image]
+      @user.image_name = "#{@user.id}.jpg"
+      image = params[:user][:user_image]
+      File.binwrite("public/user_images/#{@user.image_name}", image.read)
+    end
+    if @user.update(user_params)
+      flash[:success] = "ユーザー情報を更新しました。"
+      redirect_to @user
+    else
+      flash.now[:danger] = "入力内容を確認してください。"
+      render "/users/edit"
+    end
   end
 
   def destroy
@@ -62,7 +81,12 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)    
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :image_name)    
+    end
+
+    def corrent_user
+      @user = User.find(params[:id])
+      redirect_to root_path  unless @user.id == @current_user.id
     end
 
 end
