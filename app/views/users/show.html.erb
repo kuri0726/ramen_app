@@ -2,6 +2,7 @@
   <div class = "profile">
     <div class = "profile-info">
       <%= image_tag("/user_images/#{@user.image_name}", width:"100px", height:"100px", class: "icon") %>
+
       <h1><%= @user.name %></h1>
     </div>
     <%= link_to "編集する", edit_user_path(@user), class: "edit-link" %>
