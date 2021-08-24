@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
-      log_in @user
+      log_in @user      
       params[:session][:remember_me] == '1' ? remember(@user) : forget_remember_digest(@user)
       flash[:success] = "ログインしました。"
       redirect_to user_url(@user)
