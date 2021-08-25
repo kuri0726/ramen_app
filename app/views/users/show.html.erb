@@ -1,19 +1,15 @@
 <div class = "container">
   <div class = "profile">
     <div class = "profile-info">
-      <%= link_to image_tag('/default_icon.jpg', alt: "Ramen logo", width: "100px", height:"100px", class: "icon")%>
-      
-      <%
-=begin%>
- <%= image_tag @user.user_image.attached? ? @user.user_image : "/default_icon.jpg", width:"100px", height:"100px", class: "icon" %>  
-<%
-=end%>
+
+      <%= image_tag @user.user_image.attached? ? @user.user_image : "/default_icon.jpg", width:"100px", height:"100px", class: "icon" %>  
+
         <%
 =begin%>
  <%= image_tag("/images/#{@user.image_name}", width:"100px", height:"100px", class: "icon") %> 
 <%
 =end%>
-        <h1><%= @user.name %></h1>
+      <h1><%= @user.name %></h1>
     </div>
     <%= link_to "編集する", edit_user_path(@user), class: "edit-link" %>
   </div>
