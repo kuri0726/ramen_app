@@ -62,9 +62,10 @@ class UsersController < ApplicationController
   
   def update
     if params[:user][:user_image]
-      @user.image_name = "#{@user.id}.jpg"
-      image = params[:user][:user_image]
-      File.binwrite("public/images/#{@user.image_name}", image.read)
+      @user.user_image.attach(params[:user][:user_image])
+      # @user.image_name = "#{@user.id}.jpg"
+      # image = params[:user][:user_image]
+      # File.binwrite("public/images/#{@user.image_name}", image.read)
     end
     if @user.update(user_params)
       flash[:success] = "ユーザー情報を更新しました。"
