@@ -45,6 +45,7 @@ class UsersController < ApplicationController
     else
       flash.now[:danger] = "メールアドレスかパスワードが間違っています。"
       render "/users/login_form"
+      
     end
   end
 
