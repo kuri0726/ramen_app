@@ -20,7 +20,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.image_name = "default_icon.jpg"
     if @user.save
       flash[:success] = "新規登録が完了しました。"
       log_in @user
@@ -62,13 +61,10 @@ class UsersController < ApplicationController
   end
   
   def update
-    if params[:user][:user_image]
-      @user.user_image.attach(params[:user][:user_image])
-      # @user.image_name = "#{@user.id}.jpg"
-      # image = params[:user][:user_image]
-      # File.binwrite("public/images/#{@user.image_name}", image.read)
-    end
     if @user.update(user_params)
+      if params[:user][:user_image]
+        @user.user_image.attach(params[:user][:user_image])
+      end
       flash[:success] = "ユーザー情報を更新しました。"
       redirect_to @user
     else
