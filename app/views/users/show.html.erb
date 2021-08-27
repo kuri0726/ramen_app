@@ -5,7 +5,9 @@
       <%= image_tag @user.user_image.attached? ? @user.user_image : "/default_icon.jpg", width:"100px", height:"100px", class: "icon" %>  
       <h1><%= @user.name %></h1>
     </div>
-    <%= link_to "編集する", edit_user_path(@user), class: "edit-link" %>
+    <% if @user.id == @current_user.id %>
+      <%= link_to "編集する", edit_user_path(@user), class: "edit-link" %>
+    <% end %>
   </div>
 </div>
 

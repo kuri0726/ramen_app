@@ -7,17 +7,6 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     @other_user = users(:tanaka)
   end
 
-  test "not logged in user should redirect root_path" do
-    get edit_user_path(@user)
-    assert_redirected_to login_url
-  end
-
-  test "not current user should redirect root_path" do
-    log_in_as(@user)
-    get edit_user_path(@other_user)
-    assert_redirected_to root_path
-  end
-
   test "successful edit" do
     log_in_as(@user)
     get edit_user_path(@user)

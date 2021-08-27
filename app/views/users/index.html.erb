@@ -1,0 +1,20 @@
+<% provide(:top_text, "ーユーザー一覧ー") %>
+  <div class = "container">
+    <div class = "users-index">
+      <%= will_paginate %>
+
+        <ul class="users">
+          <% @users.each do |user| %>
+            <div class = user-index>
+              <%= image_tag user.user_image.attached? ? user.user_image : "/default_icon.jpg", width:"50px", height:"50px", class: "icon" %>  
+              <h1><%= link_to user.name, user %></h1>
+              <% if user.id != @current_user.id %>
+                <%= link_to "削除", user, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn delete"  %>
+              <% end %>
+            </div>
+          <% end %>
+        </ul>
+
+        <<%= will_paginate %>
+    </div>
+  </div>

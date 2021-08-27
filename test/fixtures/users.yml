@@ -3,9 +3,11 @@ yamada:
   email: yamada@example.com
   password_digest: <%= User.digest('1234Aa') %>
   image_name: /default_icon.jpg
+  admin: true
 
 tanaka:
   name:  TanakaHanako
   email: tanaka@example.com
   password_digest: <%= User.digest('1234Aa') %>
   image_name: /default_icon.jpg
+  admin: false

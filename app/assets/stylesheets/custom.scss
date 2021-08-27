@@ -55,6 +55,13 @@ a{
   background-color: rgb(245, 139, 139);
 }
 
+.icon {
+  margin: 0 10px;
+  box-sizing: border-box;
+  border: 3px solid rgb(63, 61, 61);
+  border-radius: 50%;
+}
+
 // header
 
 header {
@@ -221,12 +228,6 @@ div.field_with_errors {
 .profile-info {
   margin: 20px 0 10px 0;
   display: flex;
-  .icon {
-    margin: 0 10px;
-    box-sizing: border-box;
-    border: 3px solid rgb(63, 61, 61);
-    border-radius: 50%;
-  }
   h1 {
     font-size: 50px;
     margin: 0px;
@@ -251,6 +252,56 @@ div.field_with_errors {
   background-color: #b5a900;
   border:1px solid #777008;
   box-shadow: 0 3px #775908;
+  &:hover {
+    color: white;
+    filter: brightness(85%);
+  }
+  &:active{
+    position: relative;
+    top: 3px;
+    box-shadow: none;
+  }
+}
+
+//ユーザー一覧
+.users-index {
+  text-align: center;
+  width: 500px;
+  margin: 0 auto;
+  .users {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .user-index {
+      display: flex;
+      h1 {
+        line-height: 90px;
+      }
+      .icon{
+        margin: auto 10px;
+        line-height: 90px;
+      }
+    }
+  }
+}
+
+.delete {
+  margin: auto ;
+  color: white;
+  text-shadow:$shadow2;
+  display: block;
+  box-sizing: border-box;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight:bold;
+  border-radius: 7px;
+  background-color: #b52400;
+  border:1px solid #771e08;
+  box-shadow: 0 3px #772708;
   &:hover {
     color: white;
     filter: brightness(85%);
