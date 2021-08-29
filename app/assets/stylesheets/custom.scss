@@ -34,7 +34,7 @@ a{
 }
 
 .alert {
-  margin: 30px auto 0 auto;
+  margin: 30px auto 30px auto;
   text-align: center;
   line-height: 40px;
   box-sizing:content-box;
@@ -62,6 +62,32 @@ a{
   border-radius: 50%;
 }
 
+//mixin
+
+@mixin btn-mix {
+  color: white;
+  text-shadow:$shadow2;
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 7px;
+  font-weight:bold;
+}
+
+@mixin store-link-mix {
+  display: block;
+  width: 25%;
+  font-size: 18px;
+  text-align: center;
+  text-decoration:none;
+  background-color: rgb(197, 158, 28);
+  &:hover {
+    color: black;
+    filter: brightness(85%);
+  }
+}
+
 // header
 
 header {
@@ -76,13 +102,18 @@ header {
     }
     .links-right {
       padding-top: 55px;
-    }
-    a{
-      margin: 0 20px;
-      display: inline-block;
-      float: right;
-      font-size: 18px;
-      font-weight: bold;
+      .first-link {
+        border-left: 2px solid rgb(119, 119, 119);
+      }
+      li {
+        border-right: 2px solid rgb(119, 119, 119);
+        padding: 0 20px;
+        display: inline-block;
+        float: right;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+      }
     }
   }
 }
@@ -167,20 +198,13 @@ div.field_with_errors {
 
 
 .btn {
-  color: white;
-  text-shadow:$shadow2;
-  display: block;
-  box-sizing: border-box;
+  @include btn-mix;
   width: 200px;
   height: 60px;
   padding: 0;
   margin: 30px auto;
-  text-align: center;
   line-height: 60px;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
-  font-weight:bold;
-  border-radius: 7px;
   &:hover {
     color: white;
     filter: brightness(85%);
@@ -236,25 +260,19 @@ div.field_with_errors {
 }
 
 .edit-link {
-  margin-left: 15px;
-  color: white;
-  text-shadow:$shadow2;
-  display: block;
-  box-sizing: border-box;
+  @include btn-mix;
   width: 80px;
   height: 30px;
-  text-align: center;
   line-height: 30px;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
-  font-weight:bold;
-  border-radius: 7px;
+  margin-left: 15px;
   background-color: #b5a900;
   border:1px solid #777008;
   box-shadow: 0 3px #775908;
   &:hover {
     color: white;
     filter: brightness(85%);
+    text-decoration: none;
   }
   &:active{
     position: relative;
@@ -263,42 +281,38 @@ div.field_with_errors {
   }
 }
 
-//ユーザー一覧
-.users-index {
+//index
+.index-form {
   text-align: center;
-  width: 500px;
+  width: 40%;
   margin: 0 auto;
-  .users {
+  .objects {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    .user-index {
+    .index {
       display: flex;
+      margin: 10px 0;
       h1 {
-        line-height: 90px;
+        line-height: 50px;
+        margin: 0;
       }
       .icon{
-        margin: auto 10px;
+        margin: 0;
         line-height: 90px;
       }
     }
   }
 }
 
+
 .delete {
-  margin: auto ;
-  color: white;
-  text-shadow:$shadow2;
-  display: block;
-  box-sizing: border-box;
+  @include btn-mix;
   width: 80px;
   height: 30px;
-  text-align: center;
   line-height: 30px;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
-  font-weight:bold;
-  border-radius: 7px;
+  margin: auto  30px;
   background-color: #b52400;
   border:1px solid #771e08;
   box-shadow: 0 3px #772708;
@@ -311,6 +325,47 @@ div.field_with_errors {
     top: 3px;
     box-shadow: none;
   }
+}
+
+//お店情報
+.store-form{
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 10px;
+  .store-info {
+    display: flex;
+    height: 120px;
+    background-color: rgb(221, 176, 27);
+    border-radius: 10px 10px 0 0;
+    h1 {
+      font-weight: bold;
+    }
+    img {
+      padding: 10px;
+    }
+  }
+
+  .store-links {
+    display: flex;
+    font-weight: bold;
+    .store-link-first {
+      border-radius: 0 0 0 10px;
+      border-right: 0.5px solid rgb(241, 221, 178);
+      @include store-link-mix;
+    }
+    .store-link {
+      @include store-link-mix;
+      border-right: 0.5px solid rgb(241, 221, 178);
+    }
+    .store-link-last {
+      border-radius: 0 0 10px 0;
+      @include store-link-mix;
+    }
+  }
+}
+
+.store-edit{
+  margin: 20px 0;
 }
 
 //footer
@@ -331,11 +386,11 @@ footer{
     li {
       margin: 0;
       // padding:0 10px;
-      border-left: 1px solid black;
+      border-right: 1px solid black;
       padding:0 10px;
     }
     >:last-child{
-      border-right: 1px solid black;
+      border: none;
     }
   }
 }

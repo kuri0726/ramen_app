@@ -1,0 +1,18 @@
+<% provide(:top_text, "ー店舗情報の編集ー") %>
+<div class = "container">
+  <div class = "input-form">
+    <%= form_with(model: @store, local: true) do |f| %>
+
+      <%= f.label :name, "店舗名" %>
+      <%= f.text_field :name, class: 'form-control' %>
+      <% if @store.errors.include?(:name) %>
+        <p style="color: red;"><%= @store.errors.full_messages_for(:name).first %>
+      <% end %>
+
+      <div class = "input-submit">
+        <%= f.submit "更新する" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

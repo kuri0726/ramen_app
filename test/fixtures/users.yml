@@ -2,12 +2,18 @@ yamada:
   name:  YamadaTaro
   email: yamada@example.com
   password_digest: <%= User.digest('1234Aa') %>
-  image_name: /default_icon.jpg
   admin: true
 
 tanaka:
   name:  TanakaHanako
   email: tanaka@example.com
   password_digest: <%= User.digest('1234Aa') %>
-  image_name: /default_icon.jpg
   admin: false
+
+<% 50.times do |n| %>
+user_<%= n %>:
+  name: <%= "User0#{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('1234Aa') %>
+  admin: false
+<% end %>

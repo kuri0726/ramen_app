@@ -1,0 +1,18 @@
+<div class = "container">
+  <div class = "store-form">
+    <div class = "store-info">
+      <%= image_tag "/no_image.png", width:"120px", height:"120px" %>
+      <h1><%= @store.name%></h1>
+    </div>
+    <div class = "store-links">
+      <%= link_to "お店トップ", "#", class: "store-link-first" %>
+      <%= link_to "レビュー(0)", "#", class: "store-link" %>
+      <%= link_to "写真(0)", "#", class: "store-link" %>
+      <%= link_to "待ち時間予測", "#", class: "store-link-last" %>
+    </div>
+    <% if @current_user.admin? %>
+      <%= link_to "編集する", edit_store_path(@store), class: "edit-link store-edit" %>
+    <% end %>
+  </div>
+  
+</div>

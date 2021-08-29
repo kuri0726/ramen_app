@@ -1,0 +1,7 @@
+ramen1:
+  name: Ramen01
+
+<% 50.times do |n| %>
+store_<%= n %>:
+  name: <%= "store0#{n}" %>
+<% end %>

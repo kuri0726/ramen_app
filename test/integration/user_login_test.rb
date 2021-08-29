@@ -4,7 +4,6 @@ class UserLoginTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:yamada)
-    @other_user = users(:tanaka)
   end
   
   test "should redirect user_url when invalid email" do

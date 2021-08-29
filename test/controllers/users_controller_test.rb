@@ -18,7 +18,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
-  test "not logged in user shouldn't edith" do
+  test "not logged in user shouldn't edit" do
     get edit_user_path(@user)
     assert_redirected_to login_url
   end  
@@ -36,7 +36,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "not admin user should delete" do 
+  test "not admin user shouldn't delete" do 
     log_in_as(@other_user)
     assert_no_difference 'User.count' do
       delete user_path(@user)

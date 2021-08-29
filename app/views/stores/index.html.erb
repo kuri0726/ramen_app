@@ -1,0 +1,17 @@
+<% provide(:top_text, "ー店舗一覧ー") %>
+<div class = "container">
+  <div class = "index-form">
+    <%= will_paginate %>
+
+      <ul class="objects">
+        <% @stores.each do |store| %>
+          <div class = "index store">
+            <h1><%= link_to store.name, store %></h1>
+            <%= link_to "削除", store, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn delete"  %>
+          </div>
+        <% end %>
+      </ul>
+
+      <%= will_paginate %>
+  </div>
+</div>
