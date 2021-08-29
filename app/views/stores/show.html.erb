@@ -1,6 +1,6 @@
 <div class = "container">
   <div class = "store-form">
-    <div class = "store-info">
+    <div class = "store-top">
       <%= image_tag "/no_image.png", width:"120px", height:"120px" %>
       <h1><%= @store.name%></h1>
     </div>
@@ -10,9 +10,46 @@
       <%= link_to "写真(0)", "#", class: "store-link" %>
       <%= link_to "待ち時間予測", "#", class: "store-link-last" %>
     </div>
+
     <% if @current_user.admin? %>
-      <%= link_to "編集する", edit_store_path(@store), class: "edit-link store-edit" %>
-    <% end %>
+      <div class = "action">
+        <%= link_to "編集する", edit_store_path(@store), class: "edit-link store-edit" %>
+        <%= link_to "削除", @store, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "delete store-edit"  %>
+      </div>
+    <% end %> 
+
+    <div class = "store-info">
+      <div class = "store-table">
+        <table>
+          <body>
+            <tr>
+              <td class = "a">店名</td>
+              <td class = "b"><%= @store.name %></td>
+            </tr>
+            <tr>
+              <td class = "a">住所</td>
+              <td class = "b"><%= @store.address %></td>
+            </tr>
+            <tr>
+              <td class = "a">電話番号</td>
+              <td class = "b"><%= @store.telephone_number %></td>
+            </tr>
+            <tr>
+              <td class = "a">営業時間</td>
+              <td class = "b"><%= @store.business_hours %></td>
+            </tr>
+            <tr>
+              <td class = "a">定休日</td>
+              <td class = "b"><%= @store.holiday %></td>
+            </tr>
+            <tr>
+              <td class = "a">メニュー</td>
+              <td class = "b"><%= simple_format(@store.menu) %></td>
+            </tr>
+          </body>
+        </table>
+      </div>
+    </div>
   </div>
   
 </div>

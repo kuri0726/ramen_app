@@ -196,7 +196,6 @@ div.field_with_errors {
   }
 }
 
-
 .btn {
   @include btn-mix;
   width: 200px;
@@ -296,6 +295,7 @@ div.field_with_errors {
       h1 {
         line-height: 50px;
         margin: 0;
+        font-size: 20px;
       }
       .icon{
         margin: 0;
@@ -304,7 +304,6 @@ div.field_with_errors {
     }
   }
 }
-
 
 .delete {
   @include btn-mix;
@@ -330,9 +329,9 @@ div.field_with_errors {
 //お店情報
 .store-form{
   width: 80%;
-  margin: 0 auto;
+  margin: 10px auto 20px auto;
   border-radius: 10px;
-  .store-info {
+  .store-top {
     display: flex;
     height: 120px;
     background-color: rgb(221, 176, 27);
@@ -344,7 +343,6 @@ div.field_with_errors {
       padding: 10px;
     }
   }
-
   .store-links {
     display: flex;
     font-weight: bold;
@@ -362,11 +360,56 @@ div.field_with_errors {
       @include store-link-mix;
     }
   }
+  .action {
+    display: flex;
+  }
+  .store-info{
+    margin: 30px auto;
+    background-color: rgb(221, 176, 27);
+    border-radius: 10px;
+    padding: 10px;
+    .store-table {
+      padding: 10px;
+      background-color: white;
+      margin: 10px auto;
+      width: 90%;
+      height: 90%;
+      border-radius: 15px;
+      table {
+        margin: auto;
+        width: 90%;
+        height: 90%;
+      }
+      td {
+        font-size: 20px;
+      }
+      .a{
+        color: rgb(87, 87, 87);
+        width: 30%;
+        background-color: rgb(202, 202, 202);
+        text-align: center;
+        border: 1px solid rgb(224, 224, 224);
+      }
+      .b {
+        padding: 5px 10px;
+        border-top: 1px dashed rgb(150, 150, 150);
+        border-bottom: 1px dashed rgb(150, 150, 150);
+        word-break: break-all;
+      }
+
+    }
+  }
+}
+
+.show-delete{
+  margin: 0 15px;
 }
 
 .store-edit{
-  margin: 20px 0;
+  margin: 20px 0 10px 10px;
 }
+
+
 
 //footer
 

@@ -7,7 +7,12 @@
     </div>
     <% if @user.id == @current_user.id %>
       <%= link_to "編集する", edit_user_path(@user), class: "edit-link" %>
+      
     <% end %>
+    <% unless @user.admin? %>
+      <%= link_to "削除", @user, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "delete show-delete"  %>
+    <% end %>
+
   </div>
 </div>
 

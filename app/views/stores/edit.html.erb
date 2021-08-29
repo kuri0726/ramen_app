@@ -3,11 +3,47 @@
   <div class = "input-form">
     <%= form_with(model: @store, local: true) do |f| %>
 
-      <%= f.label :name, "店舗名" %>
+      <%= f.label :name, "店名" %>
       <%= f.text_field :name, class: 'form-control' %>
       <% if @store.errors.include?(:name) %>
         <p style="color: red;"><%= @store.errors.full_messages_for(:name).first %>
       <% end %>
+      <p>&nbsp;</p>
+
+      <%= f.label :address, "住所" %>
+      <%= f.text_field :address, class: 'form-control' %>
+      <% if @store.errors.include?(:address) %>
+        <p style="color: red;"><%= @store.errors.full_messages_for(:address).first %>
+      <% end %>
+      <p>&nbsp;</p>
+
+      <%= f.label :telephone_number, "電話番号" %>
+      <%= f.text_field :telephone_number, class: 'form-control' %>
+      <% if @store.errors.include?(:telephone_number) %>
+        <p style="color: red;"><%= @store.errors.full_messages_for(:telephone_number).first %>
+      <% end %>
+      <p>&nbsp;</p>
+
+      <%= f.label :business_hours, "営業時間" %>
+      <%= f.text_field :business_hours, class: 'form-control' %>
+      <% if @store.errors.include?(:business_hours) %>
+        <p style="color: red;"><%= @store.errors.full_messages_for(:business_hours).first %>
+      <% end %>
+      <p>&nbsp;</p>
+
+      <%= f.label :holiday, "定休日" %>
+      <%= f.text_field :holiday, class: 'form-control' %>
+      <% if @store.errors.include?(:holiday) %>
+        <p style="color: red;"><%= @store.errors.full_messages_for(:holiday).first %>
+      <% end %>
+      <p>&nbsp;</p>
+
+      <%= f.label :menu, "メニュー" %>
+      <%= f.text_area :menu, class: 'form-control' %>
+      <% if @store.errors.include?(:menu) %>
+        <p style="color: red;"><%= @store.errors.full_messages_for(:menu).first %>
+      <% end %>
+      <p>&nbsp;</p>
 
       <div class = "input-submit">
         <%= f.submit "更新する" %>
