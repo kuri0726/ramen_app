@@ -2,16 +2,18 @@
 <div class = "container">
   <div class = "index-form">
     <%= will_paginate %>
-
-      <ul class="objects">
-        <% @stores.each do |store| %>
-          <div class = "index store">
-            <h1><%= link_to store.name, store %></h1>
-            <%= link_to "削除", store, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "delete"  %>
-          </div>
-        <% end %>
-      </ul>
-
+        <div class = "index-objects">
+          <% @stores.each do |store| %>
+            <div class = "index-object">
+              <%= image_tag "/no_image.png", width:"80px", height:"80px" %>
+              <div class = "searched-store-info">
+                <%= link_to store.name, store_path(store) %>
+                <p><%= store.address %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
       <%= will_paginate %>
   </div>
 </div>
+

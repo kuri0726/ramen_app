@@ -1,0 +1,22 @@
+<div class = "container">
+  <div class = "search-form">
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
+      <%= f.text_field :keyword, class: "search-input", value: @keyword %>
+      <section>
+        <%= f.submit "検索", class: "btn btn-search" %>
+      </section>
+    <% end %>
+  </div>
+
+  <div class = "index-form">
+    <%= will_paginate @stores %>
+      <div class = "index-objects">
+        <% if @stores.count != 0 %>
+          <%= render "search/store_index" %>
+        <% else %>
+          <%= render "search/no_results" %>
+        <% end %>
+      </div>
+    <%= will_paginate @stores %>
+  </div>
+</div>

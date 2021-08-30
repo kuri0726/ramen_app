@@ -280,52 +280,6 @@ div.field_with_errors {
   }
 }
 
-//index
-.index-form {
-  text-align: center;
-  width: 40%;
-  margin: 0 auto;
-  .objects {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    .index {
-      display: flex;
-      margin: 10px 0;
-      h1 {
-        line-height: 50px;
-        margin: 0;
-        font-size: 20px;
-      }
-      .icon{
-        margin: 0;
-        line-height: 90px;
-      }
-    }
-  }
-}
-
-.delete {
-  @include btn-mix;
-  width: 80px;
-  height: 30px;
-  line-height: 30px;
-  font-size: 12px;
-  margin: auto  30px;
-  background-color: #b52400;
-  border:1px solid #771e08;
-  box-shadow: 0 3px #772708;
-  &:hover {
-    color: white;
-    filter: brightness(85%);
-  }
-  &:active{
-    position: relative;
-    top: 3px;
-    box-shadow: none;
-  }
-}
-
 //お店情報
 .store-form{
   width: 80%;
@@ -400,16 +354,94 @@ div.field_with_errors {
     }
   }
 }
-
 .show-delete{
   margin: 0 15px;
 }
-
 .store-edit{
   margin: 20px 0 10px 10px;
 }
 
+//index
+//search
 
+.delete {
+  @include btn-mix;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+  margin: auto  30px;
+  background-color: #b52400;
+  border:1px solid #771e08;
+  box-shadow: 0 3px #772708;
+  &:hover {
+    color: white;
+    filter: brightness(85%);
+  }
+  &:active{
+    position: relative;
+    top: 3px;
+    box-shadow: none;
+  }
+}
+
+.search-form {
+  padding: 50px 0 40px 0;  
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  border: 2px solid rgb(204, 160, 16);
+  border-radius: 10px;
+  .search-input {
+    width: 500px;
+  }
+}
+
+.index-form {
+  text-align: center;
+  width: 60%;
+  margin: 10px auto 20px auto;
+  border-radius: 10px;
+  .index-objects {
+    margin: 30px auto;
+    background-color: rgb(221, 176, 27);
+    border-radius: 10px;
+    padding: 10px;
+    .index-object {
+      background-color: blanchedalmond;
+      padding: 10px;
+      border-top: 1px solid rgb(185, 182, 177);
+      border-bottom: 1px solid blanchedalmond;
+      display: flex;
+      a {
+        font-size: 15px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      p{
+        font-size: 7px;
+      }
+    }
+  }
+}
+
+.no-results {
+  padding: 50px 0;
+  text-align: center;
+  background-color: blanchedalmond;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
+.user-info {
+  text-align: center;
+}
+
+.btn-search {
+  background-color: #b5a900;
+  border:1px solid #777008;
+  box-shadow: 0 3px #775908;
+}
 
 //footer
 

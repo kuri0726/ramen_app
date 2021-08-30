@@ -15,7 +15,6 @@ class StoreIndexTest < ActionDispatch::IntegrationTest
     first_page_of_stores = Store.paginate(page: 1)
     first_page_of_stores.each do |store|
       assert_select "a[href=?]", store_path(store), text: store.name
-      assert_select "a[href=?]", store_path(store), text: "削除"
     end
     assert_difference "Store.count", -1 do
       delete store_path(@store)
