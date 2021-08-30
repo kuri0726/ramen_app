@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   get "/login" => "users#login_form"
   get "/logout" => "users#logout"
   post "/login" => "users#login"
+
+  get "/stores/store_microposts/:id" => "stores#microposts"
+  get "/stores/store_photos/:id" => "stores#photos"
+  get "/stores/store_waiting_waiting/:id" => "stores#waiting_time"
+
   resources :users
   resources :stores
 

@@ -43,11 +43,11 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  # test "admin user shouldn't delete admin user" do 
-  #   log_in_as(@user)
-  #   assert_no_difference 'User.count' do
-  #     delete user_path(@user)
-  #   end
-  # end
+  test "admin user shouldn't delete admin user" do 
+    log_in_as(@user)
+    assert_no_difference 'User.count' do
+      delete user_path(@user)
+    end
+  end
 
 end

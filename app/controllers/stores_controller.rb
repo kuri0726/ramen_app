@@ -47,7 +47,20 @@ class StoresController < ApplicationController
     redirect_to stores_path
   end
 
+  def microposts
+    @store = Store.find_by(id: params[:id])
+  end
+
+  def photos
+    @store = Store.find_by(id: params[:id])
+  end
+
+  def waiting_time
+    @store = Store.find_by(id: params[:id])
+  end
+
   private
+
     def store_params
       params.require(:store).permit(:name, :address, :telephone_number, :business_hours, :holiday, :menu)   
     end

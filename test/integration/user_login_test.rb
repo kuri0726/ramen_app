@@ -36,7 +36,7 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     @current_user = @user
     assert is_logged_in?
-    assert_redirected_to @current_user
+    assert_redirected_to user_path(@current_user)
     follow_redirect!
     assert_template "users/show"
     assert_equal @user.name, @current_user.name

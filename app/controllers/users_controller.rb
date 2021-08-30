@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :logged_in_user, {only: [:edit, :update, :index, :show]}
   before_action :corrent_user, {only: [:edit, :update]}
   before_action :admin_user, {only: [:index, :destroy]}
-  # before_action :admin_destroy, {only: :destroy}
+  before_action :admin_destroy, {only: [:destroy]}
 
 
   def show
@@ -97,12 +97,12 @@ class UsersController < ApplicationController
       redirect_to root_path  unless @user.id == @current_user.id
     end
 
-    # def admin_destroy
-    #   user = User.find(params[:id])
-    #   if user.admin?
-    #     flash.now[:danger] = "無効な処理です。"
-    #     redirect_to root_path
-    #   end
-    # end
+    def admin_destroy
+      user = User.find(params[:id])
+      if user.admin?
+        flash.now[:danger] = "無効な処理です。"
+        redirect_to root_path
+      end
+    end
 end
 

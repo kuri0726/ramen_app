@@ -3,6 +3,7 @@ require "test_helper"
 class UserIndexTest < ActionDispatch::IntegrationTest
   def setup
     @admin_user = users(:yamada)
+    @other_user = users(:tanaka)
   end
 
   test "index page" do
@@ -19,7 +20,7 @@ class UserIndexTest < ActionDispatch::IntegrationTest
       end
     end
     assert_difference "User.count", -1 do
-      delete user_path(@admin_user)
+      delete user_path(@other_user)
     end
   end
 end
