@@ -16,7 +16,22 @@ end
 
 50.times do |n|
   day_of_week = ["日","月","火","水","木","金","土"]
-  name = ["ラーメン一郎", "麵屋 おお林", "蒙古ラーメン", "麵処 あらし", "ラーメンデパート", "らーめん改", "相田家", "天下一", "かっちゃんらーめん", "吉本家", "麵処 くり田", "麵処 sin", "麵屋 せん川"]
+  names = [["ラーメン一郎", "らーめん いちろう"],
+          ["麵屋 おお林", "めんや おおばやし"],
+          ["蒙古ラーメン", "もうこらーめん"], 
+          ["麵処 あらし", "めんどころ あらし"], 
+          ["ラーメンデパート", "らーめんでぱーと"], 
+          ["らーめん改", "らーめんかい"], 
+          ["相田家", "あいだや"], 
+          ["天下一", "てんかいち"], 
+          ["かっちゃんらーめん", "かっちゃんらーめん"], 
+          ["吉本家", "よしもとや"], 
+          ["麵処 くり田", "めんどころ くりた"], 
+          ["麵処 sin", "めんどころ しん"], 
+          ["麵屋 せん川", "めんどころ せんがわ"]]
+
+
+
   menus = ["つけめん 小 180g/￥900 並 220g/￥980 中 330g/￥1080",
             "大 440g/￥1200 特 550g/￥1350",
             "中華そば 並 180g/￥880 中 260g/￥980 大 360g/￥1100 特 460g/￥1250",
@@ -37,16 +52,21 @@ end
             "煮干つけ麺 980円",
             "煮干油そば 780円(スープ付き)"]
 
-  name = "#{name[rand(13)]} #{Faker::Address.city}店"
+  random_number = rand(13)
+
+  store_name = "#{names[random_number][0]} #{Faker::Address.city}店"
   address = "#{Faker::Address.state} #{Faker::Address.city} #{Faker::Address.street_address}"
   telephone_number = "0#{rand(10)}#{rand(10)}#{rand(10)}-#{rand(10)}#{rand(10)}-#{rand(10)}#{rand(10)}#{rand(10)}#{rand(10)}"
   business_hours = "#{rand(10..12)}:00 ~ #{rand(18..24)}:00"
   holiday = "#{day_of_week[rand(7)]}曜日"
   menu = "#{menus[rand(19)]}\n#{menus[rand(19)]}\n#{menus[rand(19)]}\n#{menus[rand(19)]}\n#{menus[rand(19)]}\n#{menus[rand(19)]}\n#{menus[rand(19)]}\n#{menus[rand(19)]}\n#{menus[rand(19)]}"
-  Store.create!(name: name,
+  store_kana = "#{names[random_number][1]}"
+
+  Store.create!(name: store_name,
                 address: address,
                 telephone_number: telephone_number,
                 business_hours: business_hours,
-                holiday: holiday
-                menu: menu)
+                holiday: holiday,
+                menu: menu,
+                kana: store_kana)
 end

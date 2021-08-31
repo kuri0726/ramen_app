@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_29_134011) do
+ActiveRecord::Schema.define(version: 2021_08_31_055913) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2021_08_29_134011) do
     t.string "business_hours"
     t.string "holiday"
     t.string "menu"
+    t.string "kana"
   end
 
   create_table "users", force: :cascade do |t|

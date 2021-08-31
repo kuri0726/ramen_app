@@ -1,6 +1,9 @@
 <div class = "store-top">
   <%= image_tag "/no_image.png", width:"120px", height:"120px" %>
-  <h1><%= @store.name%></h1>
+  <div>
+    <h1><%= @store.name%></h1>
+    <p><%= @store.kana%></p> 
+  </div>
 </div>
 <div class = "store-links">
   <%= link_to "お店トップ", store_path, class: "store-link-first" %>

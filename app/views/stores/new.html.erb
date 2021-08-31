@@ -8,7 +8,6 @@
       <% if @store.errors.include?(:name) %>
         <p style="color: red;"><%= @store.errors.full_messages_for(:name).first %>
       <% end %>
-      <p>※12文字以内で入力してください。</p>
       
       <div class = "input-submit">
         <%= f.submit "アカウント作成" %>
