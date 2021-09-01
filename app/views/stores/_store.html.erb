@@ -11,10 +11,3 @@
   <%= link_to "写真(0)", "/stores/store_photos/#{@store.id}", class: "store-link" %>
   <%= link_to "待ち時間予測", "/stores/store_waiting_waiting/#{@store.id}", class: "store-link-last" %>
 </div>
-
-<% if @current_user.admin? %>
-  <div class = "action">
-    <%= link_to "編集する", edit_store_path(@store), class: "edit-link store-edit" %>
-    <%= link_to "削除", @store, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "delete store-edit"  %>
-  </div>
-<% end %> 

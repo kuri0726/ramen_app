@@ -2,7 +2,9 @@ require "test_helper"
 
 class StoreTest < ActiveSupport::TestCase
   def setup
-    @store = Store.new(name: "Ramen01")
+    @store = Store.new(name:  "aaa" ,
+                        kana: "あああ",
+                        address: "日本")
   end
 
   test "should be valid" do

@@ -12,10 +12,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "not current user shouldn't edit" do
+  test " not correct user shouldn't edit other_user" do
     log_in_as(@user)
     get edit_user_path(@other_user)
-    assert_redirected_to root_path
+    assert_redirected_to user_path(@user)
   end
 
   test "not logged in user shouldn't edit" do

@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 
-  before_action :logged_in_user, {only: [:edit, :update, :index, :show]}
-  before_action :corrent_user, {only: [:edit, :update]}
-  before_action :admin_user, {only: [:index, :destroy]}
+  before_action :logged_in_user, {only: [:edit, :update, :index, :show, :destroy]}
+  before_action :correct_user_edit, {only: [:edit, :update]}
+  before_action :correct_user_destoy, {only: [:destroy]}
+  before_action :admin_user, {only: [:index]}
   before_action :admin_destroy, {only: [:destroy]}
-
 
   def show
     @user = User.find(params[:id])
@@ -65,9 +65,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
   
   def update
+    @user = User.find(params[:id])
     if @user.update(user_params)
       if params[:user][:user_image]
         @user.user_image.attach(params[:user][:user_image])
@@ -82,8 +84,14 @@ class UsersController < ApplicationController
 
   def destroy
     User.find_by(id: params[:id]).destroy
-    flash[:success] = "ユーザー情報を削除しました。"
-    redirect_to users_path
+      if @current_user.admin?
+        flash[:success] = "ユーザー情報を削除しました。"
+        redirect_to users_path
+      else
+        forget_remember_digest(@user)
+        session[:user_id] = nil
+        redirect_to root_path
+      end
   end
 
   private
@@ -92,16 +100,27 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)    
     end
 
-    def corrent_user
+    def correct_user_edit
       @user = User.find(params[:id])
-      redirect_to root_path  unless @user.id == @current_user.id
+      unless @user.id == @current_user.id
+        flash[:danger] = "無効な処理です。"
+        redirect_to @current_user  
+      end
+    end
+
+    def correct_user_destoy
+      @user = User.find(params[:id])
+      unless @current_user.admin?
+        flash.now[:danger] = "無効な処理です。"
+        redirect_to @current_user unless @user.id == @current_user.id
+      end
     end
 
     def admin_destroy
       user = User.find(params[:id])
       if user.admin?
-        flash.now[:danger] = "無効な処理です。"
-        redirect_to root_path
+        flash[:danger] = "無効な処理です。"
+        redirect_to  @current_user
       end
     end
 end

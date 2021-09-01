@@ -4,15 +4,16 @@
 
       <%= image_tag @user.user_image.attached? ? @user.user_image : "/default_icon.jpg", width:"100px", height:"100px", class: "icon" %>  
       <h1><%= @user.name %></h1>
+      <div class = "action">
+        <% if @user.id == @current_user.id %>
+          <%= link_to "編集する", edit_user_path(@user), class: "edit-link" %>
+          
+        <% end %>
+        <% if @current_user.admin? && !@user.admin? %>
+          <%= link_to "削除", @user, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "delete show-delete"  %>
+        <% end %>
+      </div>
     </div>
-    <% if @user.id == @current_user.id %>
-      <%= link_to "編集する", edit_user_path(@user), class: "edit-link" %>
-      
-    <% end %>
-    <% unless @user.admin? %>
-      <%= link_to "削除", @user, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "delete show-delete"  %>
-    <% end %>
-
   </div>
 </div>
 

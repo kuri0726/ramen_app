@@ -40,3 +40,8 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: 確認用のパスワード
+      store:
+        name: 店名
+        kana: ふりがなをひらがな
+        address: 住所
+

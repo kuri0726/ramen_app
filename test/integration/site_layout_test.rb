@@ -7,7 +7,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     @other_user = users(:tanaka)
   end
 
-  test "not logged in user's layout" do
+  test "not logged in user's header layout" do
     get root_path
     assert_template 'home/home'
     assert_select "a[href=?]", root_path
@@ -17,10 +17,9 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", users_path, count: 0
     assert_select "a[href=?]", stores_path, count: 0
     assert_select "a[href=?]", new_store_path, count: 0
-    # assert_select "div.first-link"
   end
 
-  test "logged in user's layout" do
+  test "logged in user's header layout" do
     log_in_as(@other_user)
     get root_path
     assert_template 'home/home'
@@ -31,10 +30,9 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", users_path, count: 0
     assert_select "a[href=?]", stores_path, count: 0
     assert_select "a[href=?]", new_store_path, count: 0
-    # assert_select "div.first-link"
   end
 
-  test "admin user's layout" do
+  test "admin user's header layout" do
     log_in_as(@adminuser)
     get root_path
     assert_template 'home/home'
@@ -45,7 +43,6 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", users_path
     assert_select "a[href=?]", stores_path
     assert_select "a[href=?]", new_store_path
-    # assert_select "div.first-link"
   end
 
 end

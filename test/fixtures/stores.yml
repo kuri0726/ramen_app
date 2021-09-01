@@ -1,7 +1,28 @@
 ramen1:
-  name: Ramen01
+  name: 麺屋 テスト
+  kana: めんや てすと
+  address: 山梨県都留市田原220
+  telephone_number: 080-0000-0000
+  business_hours: 10:00～22:00
+  holiday: 火曜日
+  menu: 醬油らーめん
+
+ramen2:
+  name: ラーメン四郎
+  kana: らーめんしろう
+  address: 東京都世田谷区赤坂3001
+  telephone_number: 080-0110-0000
+  business_hours: 10:00～23:00
+  holiday: 日曜日
+  menu: 味噌らーめん
 
 <% 50.times do |n| %>
 store_<%= n %>:
   name: <%= "store0#{n}" %>
+  kana: らーめん
+  address: 東京都新宿区新宿0<%= "#{n}" %>
+  telephone_number: 080-000<%= "#{n}" %>-0000
+  business_hours: 10:00～22:00
+  holiday: 火曜日
+  menu: 塩らーめん
 <% end %>

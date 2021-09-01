@@ -10,6 +10,13 @@
       <% end %>
       <p>&nbsp;</p>
 
+      <%= f.label :kana, "ふりがな" %>
+      <%= f.text_field :kana, class: 'form-control' %>
+      <% if @store.errors.include?(:kana) %>
+        <p style="color: red;"><%= @store.errors.full_messages_for(:kana).first %>
+      <% end %>
+      <p>&nbsp;</p>
+
       <%= f.label :address, "住所" %>
       <%= f.text_field :address, class: 'form-control' %>
       <% if @store.errors.include?(:address) %>

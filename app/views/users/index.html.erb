@@ -1,18 +1,18 @@
 <% provide(:top_text, "ーユーザー一覧ー") %>
 <div class = "container">
   <div class = "index-form">
-    <%= will_paginate %>
+    <%= will_paginate @stores, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;', inner_window: 1, outer_window: 0 %>
       <div class = "index-objects">
         <% @users.each do |user| %>
           <div class = "index-object  user-info">
             <%= image_tag user.user_image.attached? ? user.user_image : "/default_icon.jpg", width:"50px", height:"50px", class: "icon" %>  
             <h1><%= link_to user.name, user %></h1>
             <% if user.id != @current_user.id %>
-              <%= link_to "削除", user, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "delete"  %>
+              <%= link_to "削除", user, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "delete user-index-delete"  %>
             <% end %>
           </div>
         <% end %>
       </div>
-    <%= will_paginate %>
+    <%= will_paginate @stores, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;', inner_window: 1, outer_window: 0 %>
   </div>
 </div>

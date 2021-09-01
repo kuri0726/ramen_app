@@ -20,7 +20,9 @@ class StoreCreateTest < ActionDispatch::IntegrationTest
     log_in_as(@admin_user)
     get new_store_path
     assert_difference 'Store.count', 1 do
-      post stores_path, params: { store: { name:  "aaa" } }
+      post stores_path, params: { store: { name:  "aaa" ,
+                                          kana: "あああ",
+                                          address: "日本"} }
     end
     assert_not flash.empty?
     store = assigns(:store)

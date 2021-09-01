@@ -1,7 +1,7 @@
 <% provide(:top_text, "ー店舗一覧ー") %>
 <div class = "container">
   <div class = "index-form">
-    <%= will_paginate %>
+    <%= will_paginate @stores, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;', inner_window: 1, outer_window: 0 %>
         <div class = "index-objects">
           <% @stores.each do |store| %>
             <div class = "index-object">
@@ -13,7 +13,7 @@
             </div>
           <% end %>
         </div>
-      <%= will_paginate %>
+      <%= will_paginate @stores, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;', inner_window: 1, outer_window: 0 %>
   </div>
 </div>
 
