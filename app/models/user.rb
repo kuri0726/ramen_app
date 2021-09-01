@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   
+  has_many :microposts
   has_one_attached :user_image
   validates :name, presence: true, length: {maximum: 12}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

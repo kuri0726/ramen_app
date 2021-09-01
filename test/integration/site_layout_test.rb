@@ -17,6 +17,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", users_path, count: 0
     assert_select "a[href=?]", stores_path, count: 0
     assert_select "a[href=?]", new_store_path, count: 0
+    assert_select "a", text: "退会する　", count: 0
   end
 
   test "logged in user's header layout" do
@@ -30,6 +31,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", users_path, count: 0
     assert_select "a[href=?]", stores_path, count: 0
     assert_select "a[href=?]", new_store_path, count: 0
+    assert_select "a", text: "退会する　", count: 1
   end
 
   test "admin user's header layout" do
@@ -43,6 +45,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", users_path
     assert_select "a[href=?]", stores_path
     assert_select "a[href=?]", new_store_path
+    assert_select "a", text: "退会する　", count: 0
   end
 
 end

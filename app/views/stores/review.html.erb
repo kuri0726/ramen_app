@@ -1,0 +1,42 @@
+<% provide(:top_text, "#{ @store.name}へのレビュー") %>
+<div class = "container">
+  <div class = "store-form">
+      <div class = "input-form">
+      <%
+=begin%>
+ <%= form_with(model: @micropost, local: true) do |f| %>
+
+        <%= f.label :email, "食べたメニュー" %>
+        <%= f.text_field :email, class: 'form-control' %>
+        <p>&nbsp;</p>
+        
+        <%= f.label :email, "来店日" %>
+        <%= f.email_field :email, class: 'form-control' %>
+        <p>&nbsp;</p>
+
+        <%= f.label :score, "点数" %>
+        <%= f.select :score, class: 'form-control' %>
+        <p>&nbsp;</p>
+
+        <%= f.label :email, "待ち時間" %>
+        <%= f.email_field :email, class: 'form-control' %>
+        <p>&nbsp;</p>
+
+        <%= f.label :email, "写真" %>
+        <%= f.email_field :email, class: 'form-control' %>
+        <p>&nbsp;</p>
+
+        <%= f.label :email, "コメント" %>
+        <%= f.text_area :email, rows: 10 , class: 'form-control' %>
+        <p>&nbsp;</p>
+
+      <div class = "input-submit">
+        <%= f.submit "投稿する" %>
+      </div>
+
+    <% end %> 
+<%
+=end%>
+  </div>
+  </div>  
+</div>

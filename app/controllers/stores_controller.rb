@@ -59,6 +59,10 @@ class StoresController < ApplicationController
     @store = Store.find_by(id: params[:id])
   end
 
+  def review
+    @store = Store.find_by(id: params[:id])
+  end
+
   private
 
     def store_params

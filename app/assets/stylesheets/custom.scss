@@ -11,6 +11,7 @@ body {
 
 li{
   list-style: none;
+  text-decoration: none;
 }
 
 a{
@@ -108,7 +109,6 @@ header {
       li {
         border-right: 2px solid rgb(119, 119, 119);
         padding: 0 20px;
-        display: inline-block;
         float: right;
         font-size: 18px;
         font-weight: bold;
@@ -229,8 +229,11 @@ div.field_with_errors {
 //ログイン画面
 
 .input-form{
-  width: 50%;
+  width: 60%;
   margin: 50px auto;
+  border: 4px double rgb(194, 194, 194);
+  border-radius: 10px;
+  padding: 15px;
   .input-submit {
     text-align: center;
     padding: 30px 0;
@@ -408,12 +411,14 @@ div.field_with_errors {
   width: 60%;
   margin: 10px auto 20px auto;
   border-radius: 10px;
+  text-align: center;
   .index-objects {
     margin: 30px auto;
     background-color: rgb(221, 176, 27);
     border-radius: 10px;
     padding: 10px;
     .index-object {
+      text-align: left;
       background-color: blanchedalmond;
       border-top: 1px solid rgb(185, 182, 177);
       border-bottom: 1px solid blanchedalmond;
@@ -453,6 +458,13 @@ div.field_with_errors {
   background-color: #b5a900;
   border:1px solid #777008;
   box-shadow: 0 3px #775908;
+}
+
+.btn-review {
+  width: 300px;
+  background-color: #eba439;
+  border:1px solid #774b08;
+  box-shadow: 0 3px #c27919;
 }
 
 .user-index-delete {
