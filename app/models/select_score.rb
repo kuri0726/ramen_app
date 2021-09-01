@@ -1,0 +1,2 @@
+class SelectScore < ApplicationRecord
+end

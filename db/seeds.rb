@@ -68,3 +68,8 @@ end
                 menu: menu,
                 kana: store_kana)
 end
+
+100.times do |n|
+  SelectScore.create!(select_score: 100-n)
+end
+

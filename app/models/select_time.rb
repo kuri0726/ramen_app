@@ -1,0 +1,2 @@
+class SelectTime < ApplicationRecord
+end
