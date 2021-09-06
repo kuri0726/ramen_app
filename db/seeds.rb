@@ -55,7 +55,7 @@ end
   store_name = "#{names[random_number][0]} #{Faker::Address.city}店"
   address = "#{Faker::Address.state} #{Faker::Address.city} #{Faker::Address.street_address}"
   telephone_number = "0#{rand(10)}#{rand(10)}#{rand(10)}-#{rand(10)}#{rand(10)}-#{rand(10)}#{rand(10)}#{rand(10)}#{rand(10)}"
-  business_hours = "#{rand(10..12)}:00 ~ #{rand(18..24)}:00"
+  business_hours = "#{rand(10..12)}:00 ~ #{rand(20..24)}:00"
   holiday = "#{day_of_week[rand(7)]}曜日"
   menu = "#{menus[rand(19)]}\n#{menus[rand(19)]}\n#{menus[rand(19)]}\n#{menus[rand(19)]}\n#{menus[rand(19)]}\n#{menus[rand(19)]}\n#{menus[rand(19)]}\n#{menus[rand(19)]}\n#{menus[rand(19)]}"
   store_kana = "#{names[random_number][1]}"
@@ -73,3 +73,75 @@ end
   SelectScore.create!(select_score: 100-n)
 end
 
+61.times do |n|
+  SelectTime.create!(select_time: 5*n)
+end
+
+300.times do |n|
+
+  menus = ["つけめん 小 180g/￥900 並",
+    "中華そば 中 260g/￥980",
+    "しょうゆらぁ麺1300円",
+    "わんたん入りしょうゆらぁ麺1580円",
+    "しょうゆチャーシュー麺1700円",
+    "わんたん入りしょうゆチャーシュー麺1980円",
+    "しおらぁ麺1300円",
+    "わんたん入りしおらぁ麺1580円",
+    "しおチャーシュー麺1700円",
+    "わんたん入りしおチャーシュー麺1980円",
+    "つけ麺(醤油・塩)1800円",
+    "煮干しそば 白醤油 700円",
+    "煮干しそば 黒醤油 700円",
+    "濃厚煮干そば 800円(大盛不可)",
+    "中華そば 800円",
+    "牡蠣そば 900円",
+    "煮干つけ麺 980円",
+    "煮干油そば 780円(スープ付き)"]
+
+  contents = ["スープ：前面にくる魚介の風味と動物系の深みのある旨み。
+
+    麺：自家製太麺。麺だけ啜ると、コシがあって小麦の風味がたちます。スープとの絡みもほどよく、追加の辛味の味変も楽しんでいたら、麺はなくなってしまいました。
+    具材：チャーシュー、メンマ、ナルト、ネギm(__)m、のりm(__)m、味玉m(__)m。どれも安定して安心の旨さ。
+    
+    最後にスープ割を柚子ありで、余韻を楽しみながら、美味しく完食。
+    やはり間違いないですね、ごちそうさまでした。",
+
+    "スープは、ドロンジョ豚骨魚介醤油味。
+    濃厚だがくどくない素材の良さを感じる
+    
+    麺は極太喰らうストレート。
+    小麦感しっかりな上質なもの
+    
+    TOKYOXのチャーシュー、メンマ、ねぎ
+    
+    こだわりはさすがのもの。
+    何より富田店主の魅せる時間が良い",
+
+    "麺の太さ、つけ汁の濃厚さ、突き詰め過ぎてここまでやるとやり過ぎかとも思えるが、それでも食べれば納得のおいしさ。
+    個人的にはチャーシューよりも、焼売とまかないご飯が絶品でした。"]
+
+  ate_food = menus[rand(17)]
+  date_from = Date.parse("2020/01/01")
+  date_to   = Date.parse("2021/08/31")
+  visit_date = Random.rand(date_from .. date_to)
+  score = rand(50..100)
+  
+  time_from = Time.parse("10:00")
+  time_to   = Time.parse("24:00")
+  visit_time = Random.rand(time_from .. time_to)
+  waiting_time = "#{rand(13)}"+"5"
+
+  
+
+  Micropost.create!(ate_food: ate_food,
+    visit_date: visit_date,
+    visit_time: visit_time,
+    score: score,
+    waiting_time: waiting_time,
+    user_id: rand(1..100),
+    store_id: rand(1..10),
+    created_at: visit_date,
+    micropost_image: "/seed_image/S__#{rand(35323922..35324028)}.jpg",
+    content: contents[rand(0..2)])
+
+end

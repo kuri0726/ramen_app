@@ -4,8 +4,12 @@
     <%= render "stores/store" %>
     <h1>投稿一覧</h1>
 
+    <%= render "/microposts/index" %>
+   
+  </div>
+
     <div class = "review-form">
-      <%= link_to "このお店のレビューをする", "/stores/review/#{@store.id}", class: "btn btn-review" %>
+      <%= link_to "このお店のレビューをする", "/microposts/review/#{@store.id}", class: "btn btn-review" %>
     </div>
   </div>
 </div>

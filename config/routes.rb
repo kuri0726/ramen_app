@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'stores/show'
   get 'store/store'
   get 'users/show'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root "home#home"
   get "/signup" => "users#new"
@@ -11,13 +10,14 @@ Rails.application.routes.draw do
   get "/logout" => "users#logout"
   post "/login" => "users#login"
   
-  get "/stores/review/:id" => "stores#review"
+  post "/microposts/review/:id" => "microposts#create"
+  get "/microposts/review/:id" => "microposts#review", as: "microposts"
+  
   get "/stores/store_photos/:id" => "stores#photos"
   get "/stores/store_waiting_waiting/:id" => "stores#waiting_time"
-  get "/stores/store_microposts/:id" => "stores#microposts"
+  get "/stores/store_microposts/:id" => "stores#microposts", as: "store_microposts"
 
   resources :users
   resources :stores
-  resources :microposts, only: [:create, :destroy]
 
 end

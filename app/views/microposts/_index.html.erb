@@ -1,0 +1,42 @@
+ <div class = "index-form">
+  <%= will_paginate @microposts, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;', inner_window: 1, outer_window: 0 %>
+    <div class = "index-objects">
+          <% unless @microposts.any? %>
+            <div class = "no-results">
+              <h3>まだレビューはありません。</h3>
+            </div>
+          <% end %>
+      <% @microposts.each do |micropost| %>
+        <div class = "index-object index-micropost">
+          <div class = "searched-store-info micropost-info">
+            <div class = "micropost-top">
+              <h3><%= micropost.score %>点</h3>
+              <div class = "micropost-menu">
+                <%= link_to micropost.ate_food, "#" %>
+                <div class = "micropost-link">
+                  <p>店舗名: <%= link_to micropost.store.name,  micropost.store %></p>
+                  <p>投稿者: <%= link_to micropost.user.name, micropost.user %></p>
+                  <p class = "created_at" >投稿日: <%= micropost.created_at.strftime('%Y/%m/%d') %></p>
+                </div>
+              </div>
+            </div>
+            <div class = "micropost-body">
+              <% if micropost.store_image.attached? %>
+                <%= image_tag micropost.store_image, width:"200px", height:"200px" %>
+              <% else %>
+                <%= image_tag micropost.micropost_image, width:"200px", height:"200px" %>
+              <% end %>                
+              <div class = "micropost-content">
+                <% if micropost.content.size >= 100 %>
+                  <p><%= truncate(longtext(micropost.content), length: 300) %>...<%= link_to "続きを読む", "#" %></p>
+                <% else %>
+                  <p><%= longtext(micropost.content)%></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <%= will_paginate @microposts, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;', inner_window: 1, outer_window: 0 %>
+</div>

@@ -16,9 +16,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                                 password_confirmation: "1234Aa"} }
     assert_redirected_to user_path(@admin_user)
     assert_not flash.empty?
-    follow_redirect!
     @admin_user.reload
-    assert_template "users/show"
     assert_equal "sato", @admin_user.name
     assert_equal "sato@example.com", @admin_user.email
   end

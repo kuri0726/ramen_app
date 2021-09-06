@@ -46,7 +46,7 @@
       <p>&nbsp;</p>
 
       <%= f.label :menu, "メニュー" %>
-      <%= f.text_area :menu, class: 'form-control' %>
+      <%= f.text_area :menu,  rows: 10, class: 'form-control' %>
       <% if @store.errors.include?(:menu) %>
         <p style="color: red;"><%= @store.errors.full_messages_for(:menu).first %>
       <% end %>

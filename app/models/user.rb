@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   
-  has_many :microposts
+  has_many :microposts, dependent: :destroy
   has_one_attached :user_image
   validates :name, presence: true, length: {maximum: 12}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -35,6 +35,10 @@ class User < ApplicationRecord
 
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  def user_feed
+    Micropost.where("user_id = ?" , id)
   end
 
   private

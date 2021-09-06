@@ -7,7 +7,7 @@
 </div>
 <div class = "store-links">
   <%= link_to "お店トップ", store_path, class: "store-link-first" %>
-  <%= link_to "レビュー(0)", "/stores/store_microposts/#{@store.id}", class: "store-link" %>
+  <%= link_to "レビュー(#{@microposts.count})", "/stores/store_microposts/#{@store.id}", class: "store-link" %>
   <%= link_to "写真(0)", "/stores/store_photos/#{@store.id}", class: "store-link" %>
   <%= link_to "待ち時間予測", "/stores/store_waiting_waiting/#{@store.id}", class: "store-link-last" %>
 </div>

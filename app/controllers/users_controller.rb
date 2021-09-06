@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @store = Store.find_by(id: params[:id])
+    @microposts = @user.user_feed.paginate(page: params[:page], per_page: 10)
   end
 
   def index

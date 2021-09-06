@@ -2,9 +2,9 @@ class StoresController < ApplicationController
 
   before_action :admin_user, {only: [:index, :destroy, :new, :create, :edit, :update]}
   before_action :logged_in_user
+  before_action :store_microposts, {only: [:show, :microposts, :photos, :waiting_time]}
 
   def show
-    @store = Store.find(params[:id])
   end
 
   def index
@@ -34,7 +34,7 @@ class StoresController < ApplicationController
     @store = Store.find_by(id: params[:id])
     if @store.update(store_params)
       flash[:success] = "店舗情報を更新しました。"
-      redirect_to @store
+      redirect_to @store 
     else
       flash.now[:danger] = "入力内容を確認してください。"
       render "/stores/edit"
@@ -48,25 +48,27 @@ class StoresController < ApplicationController
   end
 
   def microposts
-    @store = Store.find_by(id: params[:id])
   end
 
   def photos
-    @store = Store.find_by(id: params[:id])
   end
 
   def waiting_time
-    @store = Store.find_by(id: params[:id])
   end
-
-  def review
-    @store = Store.find_by(id: params[:id])
-  end
-
+  
   private
 
     def store_params
       params.require(:store).permit(:name, :kana, :address, :telephone_number, :business_hours, :holiday, :menu)   
+    end
+
+    def store_microposts
+      @store = Store.find_by(id: params[:id])
+      @microposts = @store.store_feed.paginate(page: params[:page], per_page: 10)
+    end
+
+    def micropost_params
+      params.permit(:ate_food, :visit_date, :visit_time, :score, :waiting_time, :content)   
     end
 
 end

@@ -1,0 +1,56 @@
+<% provide(:top_text, "#{ @store.name}へのレビュー") %>
+<div class = "container">
+  <div class = "store-form">
+      <div class = "input-form">
+
+        <%= form_with(model: @micropost, local: true ) do |f| %>
+
+          <%= f.hidden_field :store_id, value: @store.id %>
+
+          <%= f.label :ate_food, "食べたメニュー" %>
+          <%= f.text_field :ate_food, placeholder:"醤油らーめん(並)", class: 'form-control' %>
+          <p>※30文字以内で入力してください。</p>
+          <p style="color: red;"><%= @micropost.errors.full_messages_for(:ate_food).first %>
+          <p>&nbsp;</p>
+          
+
+          <%= f.label :visit_date, "来店日" %>
+          <%= f.date_field :visit_date %>
+          <p style="color: red;"><%= @micropost.errors.full_messages_for(:visit_date).first %>
+          <p>&nbsp;</p>
+
+          <%= f.label :visit_time, "到着時間" %>
+          <%= f.time_field :visit_time %>
+          <p style="color: red;"><%= @micropost.errors.full_messages_for(:visit_time).first %>
+          <p>&nbsp;</p>
+
+          <%= f.label :score, "点数" %>
+          <%= f.collection_select :score, SelectScore.all, :id, :select_score, {prompt: "選ぶ"} %>
+          <p style="color: red;"><%= @micropost.errors.full_messages_for(:score).first %>
+          <p>&nbsp;</p>
+
+          <%= f.label :waiting_time, "待ち時間" %>
+          <%= f.collection_select :waiting_time, SelectTime.all, :id, :select_time, {prompt: "選ぶ"} %>
+          <p>※おおよそで構いませんので、お店に到着してから着丼までの時間を選択してください。</p>
+          <p style="color: red;"><%= @micropost.errors.full_messages_for(:waiting_time).first %>
+          <p>&nbsp;</p>  
+
+          <%= f.label :store_image, "写真" %>
+          <%= f.file_field :store_image %>
+          <p>	※食べたメニューの写真を投稿してください。</p>
+          <p>	※ファイルの容量は16MBまでとなっております。</p>
+          <p>&nbsp;</p>
+
+          <%= f.label :content, "コメント" %>
+          <%= f.text_area :content, rows: 10 , placeholder:"美味しかったです。", class: 'form-control' %>
+          <p style="color: red;"><%= @micropost.errors.full_messages_for(:content).first %>
+          <p>&nbsp;</p> 
+
+          <div class = "input-submit">
+            <%= f.submit "投稿する" %>
+          </div>
+
+        <% end %>
+  </div>
+  </div>  
+</div>

@@ -44,4 +44,11 @@ ja:
         name: 店名
         kana: ふりがなをひらがな
         address: 住所
-
+      micropost:
+        ate_food: 食べたメニュー
+        visit_date: 来店日
+        visit_time: 到着時間
+        score: 点数
+        waiting_time: 待ち時間
+        content: コメント
+        
