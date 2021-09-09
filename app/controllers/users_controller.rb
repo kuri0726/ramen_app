@@ -53,8 +53,7 @@ class UsersController < ApplicationController
       redirect_to user_url(@user)
     else
       flash.now[:danger] = "メールアドレスかパスワードが間違っています。"
-      render "/users/login_form"
-      
+      render "/users/login_form"      
     end
   end
 

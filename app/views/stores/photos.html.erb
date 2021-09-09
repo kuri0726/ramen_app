@@ -2,7 +2,15 @@
   <div class = "store-form">
   
     <%= render "stores/store" %>
-    <h1>写真一覧</h1>
+    <h1 class = "page-title">写真一覧</h1>
+
+
+    <div class = "index-form">
+      <div class = "photos">
+        
+      </div>
+    </div>
+
 
     <div class = "review-form">
       <%= link_to "このお店のレビューをする", "/microposts/review/#{@store.id}", class: "btn btn-review" %>

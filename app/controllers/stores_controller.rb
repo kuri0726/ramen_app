@@ -3,7 +3,7 @@ class StoresController < ApplicationController
   before_action :admin_user, {only: [:index, :destroy, :new, :create, :edit, :update]}
   before_action :logged_in_user
   before_action :store_microposts, {only: [:show, :microposts, :photos, :waiting_time]}
-  before_action :recent_micropost
+  # before_action :recent_micropost
 
   def show
   end
@@ -52,6 +52,7 @@ class StoresController < ApplicationController
   end
 
   def photos
+
   end
 
   def waiting_time

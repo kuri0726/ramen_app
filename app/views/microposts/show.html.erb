@@ -1,3 +1,4 @@
+<% provide(:top_text, "－投稿内容－") %>
 <div class = "container">
   <div class = "store-form">
     <div class = "index-form">
@@ -19,7 +20,7 @@
               <% if @micropost.store_image.attached? %>
                 <%= image_tag @micropost.store_image, width:"200px", height:"200px" %>
               <% else %>
-                <%= image_tag @micropost.micropost_image, width:"200px", height:"200px" %>
+                <%= image_tag "/seed_image/#{@micropost.micropost_image}", width:"200px", height:"200px" %>
               <% end %>                
               <div class = "micropost-content">
                 <p><%= longtext(@micropost.content)%></p>

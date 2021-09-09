@@ -18,11 +18,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def recent_micropost
-    @recent_microposts = Micropost.where(store_id: params[:id]).order(created_at: "DESC").limit(1)
-    @recent_micropost = @recent_microposts[0]
-  end
-  
-
-  
 end

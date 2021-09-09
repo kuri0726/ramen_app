@@ -63,6 +63,10 @@ a{
   border-radius: 50%;
 }
 
+.pagination {
+  margin: 0px;
+}
+
 //mixin
 
 @mixin btn-mix {
@@ -375,6 +379,10 @@ div.field_with_errors {
   margin: 20px 0 10px 10px;
 }
 
+.page-title {
+  margin-left: 30px; 
+}
+
 //index
 //search
 
@@ -528,6 +536,13 @@ div.field_with_errors {
         }
       }
     }
+  }
+}
+
+.review-store-link {
+  text-align: center;
+  a {
+    text-decoration: none;
   }
 }
 

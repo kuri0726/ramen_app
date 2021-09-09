@@ -81,7 +81,7 @@ end
   SelectTime.create!(select_time: 5*n)
 end
 
-300.times do |n|
+600.times do |n|
 
   menus = ["つけめん 小 180g/￥900 並",
     "中華そば 中 260g/￥980",
@@ -145,18 +145,24 @@ end
   time_to   = Time.parse("24:00")
   visit_time = Random.rand(time_from .. time_to)
   waiting_time = "#{rand(13)}"+"5"
-  image = "S__#{rand(35323922..35324028)}.jpg"
-  
+  image = "S__#{rand(35323937..35324028)}.jpg"
+  store_number = rand(1..20)
 
-  micropost =  Micropost.create!(ate_food: ate_food,
+  Micropost.create!(ate_food: ate_food,
     visit_date: visit_date,
     visit_time: visit_time,
     score: score,
     waiting_time: waiting_time,
     user_id: rand(1..100),
-    store_id: rand(1..10),
+    store_id: store_number,
     created_at: visit_date,
-    micropost_image: "/seed_image/#{image}",
-    content: contents[rand(0..3)])
+    micropost_image: image,
+    content: contents[rand(0..3)])  
+end
 
+20.times do |n|
+  store = Store.find_by(id: n+1)
+  recent_microposts = Micropost.where(store_id: store.id).order(created_at: "DESC").limit(1)
+  recent_micropost = recent_microposts[0]
+  store.store_image.attach(io: File.open("public/seed_image/#{recent_micropost.micropost_image}"), filename: recent_micropost.micropost_image)
 end

@@ -1,6 +1,6 @@
-<% provide(:top_text, "#{ @store.name}へのレビュー") %>
 <div class = "container">
   <div class = "store-form">
+    <h1 class = "review-store-link">「<%= link_to @store.name, @store %>」へのレビュー</h1>
       <div class = "input-form">
 
         <%= form_with(model: @micropost, local: true ) do |f| %>

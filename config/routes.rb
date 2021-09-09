@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   
   post "/microposts/review/:id" => "microposts#create"
   get "/microposts/review/:id" => "microposts#review", as: "microposts"
-  get "/microposts/:id" => "microposts#show"
+  get "/microposts/:id" => "microposts#show", as: "micropost"
   
   get "/stores/store_photos/:id" => "stores#photos"
-  get "/stores/store_waiting_waiting/:id" => "stores#waiting_time"
+  get "/stores/store_waiting_time/:id" => "stores#waiting_time"
   get "/stores/store_microposts/:id" => "stores#microposts", as: "store_microposts"
 
   resources :users

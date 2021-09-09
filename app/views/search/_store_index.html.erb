@@ -1,6 +1,6 @@
 <% @stores.each do |store| %>
   <div class = "index-object">
-    <%= image_tag store.store_image.attached? ? store.store_image : store_image(store), width:"80px", height:"80px" %>
+    <%= image_tag store.store_image.attached? ? store.store_image : "/no_image.png", width:"80px", height:"80px" %>
     <div class = "searched-store-info">
       <%= link_to store.name, store_path(store) %>
       <p><%= store.address %></p>

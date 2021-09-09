@@ -1,7 +1,7 @@
 class MicropostsController < ApplicationController
 
   before_action :logged_in_user
-  before_action :recent_micropost
+  # before_action :recent_micropost
 
   def review
     @store = Store.find_by(id: params[:id])
@@ -11,7 +11,7 @@ class MicropostsController < ApplicationController
   def create
     @store = Store.find_by(id: params[:id])
     @micropost = @current_user.microposts.build(micropost_params)
-    @micropost.micropost_image = "/no_image.png"
+    @micropost.micropost_image = "no_image.png"
     if @micropost.save
       if params[:micropost][:store_image]
         @micropost.store_image.attach(params[:micropost][:store_image])

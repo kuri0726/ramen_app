@@ -1,47 +1,61 @@
 micropost1:
   ate_food: 醤油らーめん
-  visit_date: "2021-09-01"
-  visit_time: "2000-01-01 02:16:00"
+  visit_date: 2021-09-01
+  visit_time: 2000-01-01 02:16:00
   score: 85
   waiting_time: 15
-  content: "醤油らーめんおいしい！"
-  created_at: <%= 10.minutes.ago %>
-  user: yamada
-  store: ramen1
-  micropost_image: "/no_image.png"
-
-micropost2:
-  ate_food: 塩らーめん
-  visit_date: "2021-09-01"
-  visit_time: "2000-01-01 02:16:00"
-  score: 70
-  waiting_time: 35
-  content: "塩らーめんおいしい！"
+  content: 醤油らーめんおいしい！
   created_at: <%= 20.minutes.ago %>
   user: yamada
   store: ramen1
-  micropost_image: "/no_image.png"
+  micropost_image: /no_image.png
+
+micropost2:
+  ate_food: 塩らーめん
+  visit_date: 2021-09-01
+  visit_time: 2000-01-01 02:16:00
+  score: 70
+  waiting_time: 35
+  content: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  created_at: <%= 10.minutes.ago %>
+  user: yamada
+  store: ramen1
+  micropost_image: /no_image.png
 
 micropost3:
   ate_food: 豚骨らーめん
-  visit_date: "2021-09-01"
-  visit_time: "2000-01-01 02:16:00"
+  visit_date: 2021-09-01
+  visit_time: 2000-01-01 02:16:00
   score: 100
   waiting_time: 50
-  content: "豚骨らーめんおいしい！"
-  created_at: <%= 30.minutes.ago %>
+  content: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  created_at: <%= 10.minutes.ago %>
   user: yamada
   store: ramen1
-  micropost_image: "/no_image.png"
+  micropost_image: /no_image.png
 
 most_recent:
   ate_food: 味噌らーめん
-  visit_date: "2021-09-01"
-  visit_time: "2000-01-01 02:16:00"
+  visit_date: 2021-09-01
+  visit_time: 2000-01-01 02:16:00
   score: 80
   waiting_time: 10
-  content: "味噌らーめんおいしい！"
+  content: 味噌らーめんおいしい！
   created_at: <%= Time.zone.now %>
   user: yamada
   store: ramen1
-  micropost_image: "/no_image.png"
+  micropost_image: /no_image.png
+
+<% 50.times do |n| %>
+micropost_<%= n %>:
+  ate_food: 味噌らーめん
+  visit_date: 2021-09-01
+  visit_time: 2000-01-01 02:16:00
+  score: <%= n %>
+  waiting_time: 10
+  content: 味噌らーめんおいしい！
+  created_at: <%= 30.minutes.ago %>
+  user: yamada
+  store: ramen1
+  micropost_image: /no_image.png
+<% end %>
