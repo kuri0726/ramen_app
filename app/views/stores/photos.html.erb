@@ -7,7 +7,13 @@
 
     <div class = "index-form">
       <div class = "photos">
-        
+        <% @microposts_photos.each do |microposts_photo| %>
+          <% if microposts_photo.store_image.attached? %>
+            <%= image_tag microposts_photo.store_image, width:"250px", height:"250px", class: "microposts_photo" %>
+          <% elsif !microposts_photo.micropost_image.empty? && microposts_photo.micropost_image != "no_image.png" %>
+            <%= image_tag "/seed_image/#{microposts_photo.micropost_image}", width:"250px", height:"250px", class: "microposts_photo" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
 

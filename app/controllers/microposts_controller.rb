@@ -1,7 +1,6 @@
 class MicropostsController < ApplicationController
 
   before_action :logged_in_user
-  # before_action :recent_micropost
 
   def review
     @store = Store.find_by(id: params[:id])

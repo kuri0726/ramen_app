@@ -82,7 +82,6 @@ end
 end
 
 600.times do |n|
-
   menus = ["つけめん 小 180g/￥900 並",
     "中華そば 中 260g/￥980",
     "しょうゆらぁ麺1300円",
@@ -136,17 +135,29 @@ end
     やはり間違いないですね、ごちそうさまでした。"]
 
   ate_food = menus[rand(17)]
-  date_from = Date.parse("2020/01/01")
-  date_to   = Date.parse("2021/08/31")
-  visit_date = Random.rand(date_from .. date_to)
-  score = rand(50..100)
   
+  if n > 100
+    date_from = Date.parse("2021/01/01")
+    date_to   = Date.parse("2021/09/01")
+    visit_date = Random.rand(date_from .. date_to)
+  else
+    date_from = Date.parse("2020/09/01")
+    date_to   = Date.parse("2021/05/31")
+    visit_date = Random.rand(date_from .. date_to)
+  end
+
+  score = rand(50..100)
   time_from = Time.parse("10:00")
   time_to   = Time.parse("24:00")
   visit_time = Random.rand(time_from .. time_to)
   waiting_time = "#{rand(13)}"+"5"
-  image = "S__#{rand(35323937..35324028)}.jpg"
   store_number = rand(1..20)
+
+  if n > 100
+    image = "S__#{rand(35323937..35324028)}.jpg"
+  else
+    image = "no_image.png"
+  end
 
   Micropost.create!(ate_food: ate_food,
     visit_date: visit_date,
