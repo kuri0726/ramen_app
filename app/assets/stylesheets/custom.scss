@@ -496,6 +496,11 @@ div.field_with_errors {
       .micropost-menu {
         margin: 2px 0;
         height: 42px;
+        .micropost-ate_food {
+          font-size: 20px;
+          font-weight: bold;
+          margin: 0;
+        }
         >a {
           font-size: 18px;
         }

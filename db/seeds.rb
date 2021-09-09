@@ -2,16 +2,20 @@ User.create!(name:  "RamenMaster",
   email: "kuri0726@outlook.jp",
   password:              "1234Qa",
   password_confirmation: "1234Qa",
+  image: "/default_icon.jpg",
   admin:     true)
 
 99.times do |n|
   name  = Faker::App.name
   email = "example-#{n+1}@example.org"
   password = "1234Aa"
+  image = "/user_image/S__#{rand(35340342..35340361)}.jpg"
+
   User.create!(name:  name,
       email: email,
       password:              password,
-      password_confirmation: password)
+      password_confirmation: password,
+      image:            image)
 end
 
 50.times do |n|
@@ -118,7 +122,18 @@ end
     何より富田店主の魅せる時間が良い",
 
     "麺の太さ、つけ汁の濃厚さ、突き詰め過ぎてここまでやるとやり過ぎかとも思えるが、それでも食べれば納得のおいしさ。
-    個人的にはチャーシューよりも、焼売とまかないご飯が絶品でした。"]
+    個人的にはチャーシューよりも、焼売とまかないご飯が絶品でした。",
+    
+    "麺の太さ、つけ汁の濃厚さ、突き詰め過ぎてここまでやるとやり過ぎかとも思えるが、それでも食べれば納得のおいしさ。
+    個人的にはチャーシューよりも、焼売とまかないご飯が絶品でした。
+
+    スープ：前面にくる魚介の風味と動物系の深みのある旨み。
+
+    麺：自家製太麺。麺だけ啜ると、コシがあって小麦の風味がたちます。スープとの絡みもほどよく、追加の辛味の味変も楽しんでいたら、麺はなくなってしまいました。
+    具材：チャーシュー、メンマ、ナルト、ネギm(__)m、のりm(__)m、味玉m(__)m。どれも安定して安心の旨さ。
+    
+    最後にスープ割を柚子ありで、余韻を楽しみながら、美味しく完食。
+    やはり間違いないですね、ごちそうさまでした。"]
 
   ate_food = menus[rand(17)]
   date_from = Date.parse("2020/01/01")
@@ -130,10 +145,10 @@ end
   time_to   = Time.parse("24:00")
   visit_time = Random.rand(time_from .. time_to)
   waiting_time = "#{rand(13)}"+"5"
-
+  image = "S__#{rand(35323922..35324028)}.jpg"
   
 
-  Micropost.create!(ate_food: ate_food,
+  micropost =  Micropost.create!(ate_food: ate_food,
     visit_date: visit_date,
     visit_time: visit_time,
     score: score,
@@ -141,7 +156,7 @@ end
     user_id: rand(1..100),
     store_id: rand(1..10),
     created_at: visit_date,
-    micropost_image: "/seed_image/S__#{rand(35323922..35324028)}.jpg",
-    content: contents[rand(0..2)])
+    micropost_image: "/seed_image/#{image}",
+    content: contents[rand(0..3)])
 
 end

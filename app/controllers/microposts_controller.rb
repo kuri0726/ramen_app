@@ -1,6 +1,7 @@
 class MicropostsController < ApplicationController
 
-  before_action :logged_in_user, {only: [:review, :create, :destroy]}
+  before_action :logged_in_user
+  before_action :recent_micropost
 
   def review
     @store = Store.find_by(id: params[:id])
@@ -14,6 +15,7 @@ class MicropostsController < ApplicationController
     if @micropost.save
       if params[:micropost][:store_image]
         @micropost.store_image.attach(params[:micropost][:store_image])
+        @store.store_image.attach(params[:micropost][:store_image])
       end
       flash[:success] = "レビューを投稿しました。"
       redirect_to store_microposts_path(@store)
@@ -21,6 +23,10 @@ class MicropostsController < ApplicationController
       flash.now[:danger] = "入力内容を確認してください。"
       render "/microposts/review"
     end
+  end
+
+  def show
+    @micropost = Micropost.find_by(id: params[:id])
   end
 
   private

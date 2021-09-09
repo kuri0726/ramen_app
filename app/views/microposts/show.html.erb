@@ -1,0 +1,33 @@
+<div class = "container">
+  <div class = "store-form">
+    <div class = "index-form">
+      <div class = "index-objects">
+        <div class = "index-object index-micropost">
+          <div class = "searched-store-info micropost-info">
+            <div class = "micropost-top">
+              <h3><%= @micropost.score %>点</h3>
+              <div class = "micropost-menu">
+                <p class = "micropost-ate_food"><%= @micropost.ate_food %></p>
+                <div class = "micropost-link">
+                  <p>店舗名: <%= link_to @micropost.store.name,  @micropost.store %></p>
+                  <p>投稿者: <%= link_to @micropost.user.name, @micropost.user %></p>
+                  <p class = "created_at" >投稿日: <%= @micropost.created_at.strftime('%Y/%m/%d') %></p>
+                </div>
+              </div>
+            </div>
+            <div class = "micropost-body">
+              <% if @micropost.store_image.attached? %>
+                <%= image_tag @micropost.store_image, width:"200px", height:"200px" %>
+              <% else %>
+                <%= image_tag @micropost.micropost_image, width:"200px", height:"200px" %>
+              <% end %>                
+              <div class = "micropost-content">
+                <p><%= longtext(@micropost.content)%></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

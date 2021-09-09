@@ -1,4 +1,4 @@
- <div class = "index-form">
+<div class = "index-form">
   <%= will_paginate @microposts, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;', inner_window: 1, outer_window: 0 %>
     <div class = "index-objects">
           <% unless @microposts.any? %>
@@ -12,7 +12,7 @@
             <div class = "micropost-top">
               <h3><%= micropost.score %>点</h3>
               <div class = "micropost-menu">
-                <%= link_to micropost.ate_food, "#" %>
+                <%= link_to micropost.ate_food, "/microposts/#{micropost.id}" %>
                 <div class = "micropost-link">
                   <p>店舗名: <%= link_to micropost.store.name,  micropost.store %></p>
                   <p>投稿者: <%= link_to micropost.user.name, micropost.user %></p>
@@ -28,7 +28,7 @@
               <% end %>                
               <div class = "micropost-content">
                 <% if micropost.content.size >= 100 %>
-                  <p><%= truncate(longtext(micropost.content), length: 300) %>...<%= link_to "続きを読む", "#" %></p>
+                  <p><%= truncate(longtext(micropost.content), length: 300) %>...<%= link_to "続きを読む", "/microposts/#{micropost.id}" %></p>
                 <% else %>
                   <p><%= longtext(micropost.content)%></p>
                 <% end %>

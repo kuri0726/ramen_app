@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   
   post "/microposts/review/:id" => "microposts#create"
   get "/microposts/review/:id" => "microposts#review", as: "microposts"
+  get "/microposts/:id" => "microposts#show"
   
   get "/stores/store_photos/:id" => "stores#photos"
   get "/stores/store_waiting_waiting/:id" => "stores#waiting_time"

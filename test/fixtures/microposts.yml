@@ -8,6 +8,7 @@ micropost1:
   created_at: <%= 10.minutes.ago %>
   user: yamada
   store: ramen1
+  micropost_image: "/no_image.png"
 
 micropost2:
   ate_food: 塩らーめん
@@ -19,6 +20,7 @@ micropost2:
   created_at: <%= 20.minutes.ago %>
   user: yamada
   store: ramen1
+  micropost_image: "/no_image.png"
 
 micropost3:
   ate_food: 豚骨らーめん
@@ -30,6 +32,7 @@ micropost3:
   created_at: <%= 30.minutes.ago %>
   user: yamada
   store: ramen1
+  micropost_image: "/no_image.png"
 
 most_recent:
   ate_food: 味噌らーめん
@@ -41,3 +44,4 @@ most_recent:
   created_at: <%= Time.zone.now %>
   user: yamada
   store: ramen1
+  micropost_image: "/no_image.png"

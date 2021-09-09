@@ -2,7 +2,7 @@
   <div class = "profile">
     <div class = "profile-info">
 
-      <%= image_tag @user.user_image.attached? ? @user.user_image : "/default_icon.jpg", width:"100px", height:"100px", class: "icon" %>  
+      <%= image_tag @user.user_image.attached? ? @user.user_image : @user.image, width:"100px", height:"100px", class: "icon" %>  
       <h1><%= @user.name %></h1>
       <div class = "action">
         <% if @user.id == @current_user.id %>

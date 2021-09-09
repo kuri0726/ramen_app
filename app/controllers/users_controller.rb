@@ -29,6 +29,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.image = "/default_icon.jpg"
     if @user.save
       flash[:success] = "ユーザー登録が完了しました。"
       log_in @user
