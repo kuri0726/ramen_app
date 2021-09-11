@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 2021_09_08_234201) do
     t.integer "score"
     t.integer "waiting_time"
     t.string "micropost_image"
-    t.index ["store_id"], name: "index_microposts_on_store_id"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end

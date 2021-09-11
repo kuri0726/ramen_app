@@ -7,5 +7,4 @@ class AddMicropostsColumn < ActiveRecord::Migration[6.1]
     add_column :microposts, :score, :integer
     add_column :microposts, :waiting_time, :integer
   end
-  add_index :microposts, [:store_id]
 end
