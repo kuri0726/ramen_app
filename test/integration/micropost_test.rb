@@ -4,6 +4,8 @@ class MicropostIndexTest < ActionDispatch::IntegrationTest
 
   def setup
     @admin_user = users(:yamada)
+    @no_microposts_user = users(:tanaka)
+
     @store = stores(:ramen1)
     @micropost_content50 = microposts(:micropost3)
     @micropost_content200 = microposts(:micropost2)
@@ -21,6 +23,23 @@ class MicropostIndexTest < ActionDispatch::IntegrationTest
     # show additional links if the comment size is 100 or larger 
     assert_select "a[href=?]", micropost_path(@micropost_content50), text: "a * 50", count: 0
     assert_select "a[href=?]", micropost_path(@micropost_content200), text: "続きを読む"
+    get micropost_path(@micropost_content200)
+    assert_template "microposts/show"
+    assert_select "a", text: "投稿を削除する" 
+    assert_difference "Micropost.count", -1 do
+      delete micropost_path(@micropost_content200)
+    end
+    assert_not flash.empty?
+    assert_redirected_to user_path(@admin_user)
+  end
+
+  test "other user shouldn't delete microposts" do
+    log_in_as(@no_microposts_user)
+    get micropost_path(@micropost_content200)
+    assert_select "a", text: "投稿を削除する" ,count: 0
+    assert_no_difference "Micropost.count" do
+      delete micropost_path(@micropost_content200)
+    end
   end
 
 end

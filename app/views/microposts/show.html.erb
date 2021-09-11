@@ -30,5 +30,8 @@
         </div>
       </div>
     </div>
+    <% if @current_user.id == @micropost.user.id %>
+      <%= link_to "投稿を削除する", @micropost, method: :delete, data: {confirm: "この投稿に削除しますか？"}, class: "btn micropost-delete" %>
+    <% end %>
   </div>
 </div>

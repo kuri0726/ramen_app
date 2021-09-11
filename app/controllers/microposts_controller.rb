@@ -1,6 +1,7 @@
 class MicropostsController < ApplicationController
 
   before_action :logged_in_user
+  before_action :correct_user_destroy , {only: [:destroy]}
 
   def review
     @store = Store.find_by(id: params[:id])
@@ -28,10 +29,24 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.find_by(id: params[:id])
   end
 
+  def destroy
+    Micropost.find_by(id: params[:id]).destroy
+    flash[:success] = "投稿を削除しました。"
+    redirect_to @current_user
+  end
+
   private
 
     def micropost_params
       params.require(:micropost).permit(:ate_food, :visit_date, :visit_time, :score, :waiting_time, :content, :store_id)   
+    end
+
+    def correct_user_destroy
+      @micropost = Micropost.find(params[:id])
+      unless @micropost.user.id == @current_user.id
+        flash[:danger] = "無効な処理です。"
+        redirect_to @current_user  
+      end
     end
 
 end

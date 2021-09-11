@@ -3,7 +3,7 @@ class StoresController < ApplicationController
   before_action :admin_user, {only: [:index, :destroy, :new, :create, :edit, :update]}
   before_action :logged_in_user
   before_action :store_microposts, {only: [:show, :microposts, :photos, :waiting_time]}
-  before_action :photo_counter, {only: [:show, :microposts, :photos, :waiting_time]}
+  before_action :photo_index, {only: [:show, :microposts, :photos, :waiting_time]}
 
   def show
   end
@@ -72,10 +72,11 @@ class StoresController < ApplicationController
       params.permit(:ate_food, :visit_date, :visit_time, :score, :waiting_time, :content)   
     end
 
-    def photo_counter
-      @microposts_photos = @store.store_feed
+    def photo_index
+      @microposts_photos = @store.store_feed.paginate(page: params[:page], per_page: 21)
       @photo_counter = []
-      @microposts_photos.each do |microposts_photo|
+      microposts_photos = @store.store_feed
+      microposts_photos.each do |microposts_photo|
         if microposts_photo.store_image.attached? 
           @photo_counter.push(microposts_photo.store_image)
         elsif !microposts_photo.micropost_image.empty? && microposts_photo.micropost_image != "no_image.png"

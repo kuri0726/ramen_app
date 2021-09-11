@@ -6,18 +6,36 @@
 
 
     <div class = "index-form">
+      <%= will_paginate @microposts_photos, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;', inner_window: 1, outer_window: 0 %>
       <div class = "photos">
         <% @microposts_photos.each do |microposts_photo| %>
           <% if microposts_photo.store_image.attached? %>
-            <%= image_tag microposts_photo.store_image, width:"250px", height:"250px", class: "microposts_photo" %>
+            <div class = "microposts_photo">
+              <%= image_tag microposts_photo.store_image, width:"250px", height:"250px", class: "photo" %>
+              <div class = "expansion">
+                <div class = "expansion-object">
+                  <%= image_tag microposts_photo.store_image, width:"600px", height:"600px" %>
+                </div>
+                <p class="close-btn">[ 閉じる ]</p>
+                <%= link_to "このレビューを見る", microposts_photo, class: "btn btn-review" %>
+              </div>
+            </div>
           <% elsif !microposts_photo.micropost_image.empty? && microposts_photo.micropost_image != "no_image.png" %>
-            <%= image_tag "/seed_image/#{microposts_photo.micropost_image}", width:"250px", height:"250px", class: "microposts_photo" %>
+            <div class = "microposts_photo">
+              <%= image_tag "/seed_image/#{microposts_photo.micropost_image}", width:"250px", height:"250px", class: "photo" %>
+              <div class = "expansion">
+                <div class = "expansion-object">
+                  <%= image_tag "/seed_image/#{microposts_photo.micropost_image}", width:"600px", height:"600px" %>
+                </div>
+                <p class="close-btn">[ 閉じる ]</p>
+                <%= link_to "このレビューを見る", microposts_photo, class: "btn btn-review" %>
+              </div>
+            </div>
           <% end %>
         <% end %>
       </div>
+      <%= will_paginate @microposts_photos, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;', inner_window: 1, outer_window: 0 %>
     </div>
-
-
     <div class = "review-form">
       <%= link_to "このお店のレビューをする", "/microposts/review/#{@store.id}", class: "btn btn-review" %>
     </div>

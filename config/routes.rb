@@ -14,11 +14,11 @@ Rails.application.routes.draw do
   get "/microposts/review/:id" => "microposts#review", as: "microposts"
   get "/microposts/:id" => "microposts#show", as: "micropost"
   
-  get "/stores/store_photos/:id" => "stores#photos"
-  get "/stores/store_waiting_time/:id" => "stores#waiting_time"
+  get "/stores/store_photos/:id" => "stores#photos", as: "store_photos"
+  get "/stores/store_waiting_time/:id" => "stores#waiting_time", as: "store_waiting_time"
   get "/stores/store_microposts/:id" => "stores#microposts", as: "store_microposts"
 
   resources :users
   resources :stores
-
+  resources :microposts,  only: [:destroy]
 end

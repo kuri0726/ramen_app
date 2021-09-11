@@ -483,6 +483,10 @@ div.field_with_errors {
   margin: auto 0;
 }
 
+.expansion {
+  display: none;
+}
+
 //micropost
 
 .index-micropost {
@@ -546,8 +550,50 @@ div.field_with_errors {
   }
 }
 
+.photos{
+  display: grid;
+  grid-template-columns: 250px 250px 250px;
+  justify-content: space-between;
+}
 .microposts_photo {
-  margin: 2px;
+  margin: 20px 0;
+  .expansion {
+    display: none;
+    position: absolute;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    margin: 0 auto;
+    z-index: 10;
+    .expansion-object {
+      padding-top: 100px;
+      display: flex;
+      img {
+        padding: 10px;
+        margin: 0 auto;
+        background-color: white;
+      }
+    }
+    p {
+      cursor: pointer;
+      margin: 10px 0;
+      top: 0;
+      color: white;
+      font-size: 23px;
+    }
+  }
+}
+
+.micropost-delete {
+  background-color: #b52400;
+  border:1px solid #771e08;
+  box-shadow: 0 3px #772708;
 }
 
 //footer
