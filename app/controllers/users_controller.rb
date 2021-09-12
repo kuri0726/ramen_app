@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
 
-  before_action :logged_in_user, {only: [:edit, :update, :index, :show, :destroy]}
+  before_action :logged_in_user, {only: [:edit, :update, :index, :show, :destroy, :microposts]}
+  before_action :user_info, {only: [:edit, :update, :show, :destroy, :microposts]}
   before_action :correct_user_edit, {only: [:edit, :update]}
   before_action :correct_user_destoy, {only: [:destroy]}
   before_action :admin_user, {only: [:index]}
   before_action :admin_destroy, {only: [:destroy]}
 
   def show
-    @user = User.find(params[:id])
     @store = Store.find_by(id: params[:id])
-    @microposts = @user.user_feed.paginate(page: params[:page], per_page: 10)
+    @recent_microposts = @user.user_feed.limit(3)
   end
 
   def index
@@ -67,11 +67,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
   
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       if params[:user][:user_image]
         @user.user_image.attach(params[:user][:user_image])
@@ -85,7 +83,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find_by(id: params[:id]).destroy
+    @user.destroy
       if @current_user.admin?
         flash[:success] = "ユーザー情報を削除しました。"
         redirect_to users_path
@@ -96,10 +94,19 @@ class UsersController < ApplicationController
       end
   end
 
+  def microposts
+    @microposts = @user.user_feed.paginate(page: params[:page], per_page: 10)
+  end
+
   private
 
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)    
+    end
+
+    def user_info
+      @user = User.find(params[:id])
+      @user_microposts = @user.user_feed
     end
 
     def correct_user_edit

@@ -1,20 +1,11 @@
 <div class = "container">
-  <div class = "profile">
-    <div class = "profile-info">
-
-      <%= image_tag @user.user_image.attached? ? @user.user_image : @user.image, width:"100px", height:"100px", class: "icon" %>  
-      <h1><%= @user.name %></h1>
-      <div class = "action">
-        <% if @user.id == @current_user.id %>
-          <%= link_to "編集する", edit_user_path(@user), class: "edit-link" %>
-          
-        <% end %>
-        <% if @current_user.admin? && !@user.admin? %>
-          <%= link_to "削除", @user, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "delete show-delete"  %>
-        <% end %>
-      </div>
-    </div>
-    <%= render "/microposts/index" %>
+  <%= render "users/user"%>
+  <div class = "browsing-history">
+    <h2>最近閲覧したお店</h2>
+  </div>
+  <div class = "recent-post">
+    <h2>最近の投稿</h2>
+    <%= render "users/recent_post" %>
   </div>
 </div>
 

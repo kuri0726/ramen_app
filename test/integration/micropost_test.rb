@@ -5,12 +5,11 @@ class MicropostIndexTest < ActionDispatch::IntegrationTest
   def setup
     @admin_user = users(:yamada)
     @no_microposts_user = users(:tanaka)
-
     @store = stores(:ramen1)
     @micropost_content50 = microposts(:micropost3)
     @micropost_content200 = microposts(:micropost2)
   end
-
+  
   test "microposts for each store are displayed correctly" do
     log_in_as(@admin_user)
     get store_microposts_path(@store)

@@ -2,7 +2,7 @@ class StoresController < ApplicationController
 
   before_action :admin_user, {only: [:index, :destroy, :new, :create, :edit, :update]}
   before_action :logged_in_user
-  before_action :store_microposts, {only: [:show, :microposts, :photos, :waiting_time]}
+  before_action :store_info, {only: [:show, :microposts, :photos, :waiting_time]}
   before_action :photo_index, {only: [:show, :microposts, :photos, :waiting_time]}
 
   def show
@@ -63,7 +63,7 @@ class StoresController < ApplicationController
       params.require(:store).permit(:name, :kana, :address, :telephone_number, :business_hours, :holiday, :menu)   
     end
 
-    def store_microposts
+    def store_info
       @store = Store.find_by(id: params[:id])
       @microposts = @store.store_feed.paginate(page: params[:page], per_page: 10)
     end

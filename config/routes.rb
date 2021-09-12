@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'users/show'
 
   root "home#home"
+  get "/users/miciroposts/:id" => "users#microposts", as: "user_microposts"
   get "/signup" => "users#new"
   get "/login" => "users#login_form"
   get "/logout" => "users#logout"
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
   
   post "/microposts/review/:id" => "microposts#create"
   get "/microposts/review/:id" => "microposts#review", as: "microposts"
-  get "/microposts/:id" => "microposts#show", as: "micropost"
   
   get "/stores/store_photos/:id" => "stores#photos", as: "store_photos"
   get "/stores/store_waiting_time/:id" => "stores#waiting_time", as: "store_waiting_time"
@@ -20,5 +20,5 @@ Rails.application.routes.draw do
 
   resources :users
   resources :stores
-  resources :microposts,  only: [:destroy]
+  resources :microposts,  only: [:show, :destroy]
 end

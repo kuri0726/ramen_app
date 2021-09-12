@@ -1,0 +1,20 @@
+<div class = "profile">
+  <div class = "profile-info">
+    <%= image_tag @user.user_image.attached? ? @user.user_image : @user.image, width:"100px", height:"100px", class: "icon" %>  
+    <h1><%= @user.name %></h1>
+    <div class = "action">
+      <% if @user.id == @current_user.id %>
+        <%= link_to "編集する", edit_user_path(@user), class: "edit-link" %>
+        
+      <% end %>
+      <% if @current_user.admin? && !@user.admin? %>
+        <%= link_to "削除", @user, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "delete show-delete"  %>
+      <% end %>
+    </div>
+  </div>
+  <div class = "user-links">
+    <%= link_to "マイページトップ", user_path, class: "user-link-first" %>
+    <%= link_to "レビュー(#{@user_microposts.count})", user_microposts_path, class: "user-link" %>
+    <%= link_to "お気に入りのお店", "#", class: "user-link-last" %>
+  </div>
+</div>

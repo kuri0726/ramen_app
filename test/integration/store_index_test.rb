@@ -3,7 +3,6 @@ require "test_helper"
 class StoreIndexTest < ActionDispatch::IntegrationTest
   def setup
     @admin_user = users(:yamada)
-
     @store = stores(:ramen1)
   end
 

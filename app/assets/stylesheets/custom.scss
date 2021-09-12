@@ -80,6 +80,21 @@ a{
   font-weight:bold;
 }
 
+@mixin user-link-mix {
+  width: 33.33333%;
+  text-decoration:none;
+  padding: 15px;
+  display: block;
+  font-size: 18px;
+  text-align: center;
+  &:hover {
+    color: black;
+    filter: brightness(85%);
+    background-color: rgb(212, 169, 28);
+    border-radius: 5px;
+  }
+}
+
 @mixin store-link-mix {
   display: block;
   width: 25%;
@@ -144,7 +159,6 @@ div.field_with_errors {
 //home
 
 .home {
-
   background-color: $my-orange;
   margin: -17px auto 0 auto;
   width: 2000px;
@@ -256,17 +270,49 @@ div.field_with_errors {
 .profile{
   width: 80%;
   margin: 0 auto 30px auto;
-}
-
-.profile-info {
-  margin: 20px 0 10px 0;
-  display: flex;
-  h1 {
-    font-size: 50px;
-    margin: 0px;
-    line-height: 100px;
+  border: 2px solid rgb(221, 176, 27);;
+  border-radius: 10px;
+  .profile-info {
+    margin: 20px 0 10px 0;
+    display: flex;
+    h1 {
+      font-size: 50px;
+      margin: 0px;
+      line-height: 100px;
+    }
+  }
+  .user-links {
+    margin-top: 50px;
+    display: flex;
+    background-color:  rgb(221, 176, 27);
+    font-weight: bold;
+    border-radius: 0 0 5px 5px;
+    .user-link-first {
+      border-right: 0.5px solid rgb(241, 221, 178);
+      @include user-link-mix
+    }
+    .user-link {
+      border-right: 0.5px solid rgb(241, 221, 178);
+      @include user-link-mix
+    }
+    .user-link-last {
+      @include user-link-mix
+    }
   }
 }
+.browsing-history h2{
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgb(194, 181, 181);
+}
+.recent-post h2{
+  width: 90%;
+  margin: 20px auto;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgb(194, 181, 181);
+}
+
 
 .edit-link {
   @include btn-mix;
@@ -381,6 +427,11 @@ div.field_with_errors {
 
 .page-title {
   margin-left: 30px; 
+}
+
+.page-title.user {
+  width: 80%;
+  margin: 0 auto;
 }
 
 //index
