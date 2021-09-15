@@ -5,7 +5,7 @@
     <% if @current_user.admin? %>
       <div class = "store-action">
         <%= link_to "編集する", edit_store_path(@store), class: "edit-link store-edit" %>
-        <%= link_to "削除", @store, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "delete store-edit"  %>
+        <%= link_to "削除", @store, method: :delete, data: {confirm: "本当に削除しますか？"}, class: "delete store-edit" %>
       </div>
     <% else %>
       <div class = "store-action">

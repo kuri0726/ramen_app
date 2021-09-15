@@ -5,17 +5,17 @@ class UserShowTest < ActionDispatch::IntegrationTest
     @admin_user = users(:yamada)
     @no_review_user = users(:tanaka)
     @store = stores(:ramen1)
-    @microposts = @admin_user.user_feed
     @recent_3microposts = @admin_user.user_feed.order(created_at: "DESC").limit(3)
   end
 
   test "users/show is displayed correctly" do
     log_in_as(@admin_user)
+    microposts = @admin_user.user_feed
     get user_path(@admin_user)
     assert_template "users/show"
     assert_select "a[href=?]", edit_user_path(@admin_user)
-    assert_select "a[href=?]", user_microposts_path, text: "レビュー(#{@microposts.count})"
-    assert_select "a", text: "お気に入りのお店"
+    assert_select "a[href=?]", user_microposts_path, text: "レビュー(#{microposts.count})"
+    assert_select "a", text: "お気に入りのお店(#{@admin_user.likes.count})"
     @recent_3microposts.each do |micropost|
       assert_select "a[href=?]", micropost_path(micropost), text: "#{micropost.ate_food}"
       assert_select "a[href=?]",store_path(micropost.store), text: "#{micropost.store.name}"
@@ -27,11 +27,12 @@ class UserShowTest < ActionDispatch::IntegrationTest
 
   test "users/show is displayed correctly when no_review_useris logged in" do
     log_in_as(@no_review_user)
+    microposts = @no_review_user.user_feed
     get user_path(@no_review_user)
     assert_template "users/show"
     assert_select "a[href=?]", edit_user_path(@no_review_user)
-    assert_select "a[href=?]", user_microposts_path, text: "レビュー(0)"
-    assert_select "a", text: "お気に入りのお店"
+    # assert_select "a[href=?]", user_microposts_path, text: "レビュー(#{(microposts.count})"
+    assert_select "a", text: "お気に入りのお店(#{@no_review_user.likes.count})"
     @recent_3microposts.each do |micropost|
       assert_select "a[href=?]", micropost_path(micropost), text: "#{micropost.ate_food}", count: 0
       assert_select "a[href=?]",store_path(micropost.store), text: "#{micropost.store.name}", count: 0

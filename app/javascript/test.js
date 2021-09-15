@@ -9,4 +9,5 @@ document.addEventListener("turbolinks:load", function () {
     $(".expansion").fadeOut(700);
     }
   );
+
 });

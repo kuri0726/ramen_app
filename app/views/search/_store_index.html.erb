@@ -1,9 +1,20 @@
 <% @stores.each do |store| %>
   <div class = "index-object">
+    <div class = "searched-store-score">
+      <% if store.microposts.empty? %>
+        <h5 class = "no-microposts" >投稿なし</h5>
+      <% else %>
+        <h5>平均点</h5>
+        <h5><%= avg_score(store) %>点</h5>
+      <% end %>
+    </div>
     <%= image_tag store.store_image.attached? ? store.store_image : "/no_image.png", width:"80px", height:"80px" %>
     <div class = "searched-store-info">
       <%= link_to store.name, store_path(store) %>
       <p><%= store.address %></p>
+        <h5>お気に入り登録数: <%= store.likes.count %></h5>
+        <h5>写真: <%= photos_counter(store) %></h5>
+        <h5>投稿数: <%= store.microposts.count %></h5>
     </div>
   </div>
 <% end %>

@@ -4,6 +4,7 @@ class StoresController < ApplicationController
   before_action :logged_in_user
   before_action :store_info, {only: [:show, :microposts, :photos, :waiting_time]}
   before_action :photo_index, {only: [:show, :microposts, :photos, :waiting_time]}
+  before_action :store_like, {only: [:show, :microposts, :photos, :waiting_time]}
 
   def show
   end
@@ -66,6 +67,12 @@ class StoresController < ApplicationController
     def store_info
       @store = Store.find_by(id: params[:id])
       @microposts = @store.store_feed.paginate(page: params[:page], per_page: 10)
+      store_microposts = @store.store_feed
+      if store_microposts.empty?
+        store_microposts = false
+      else
+        @avg_score = store_microposts.average(:score).round(1)
+      end
     end
 
     def micropost_params
@@ -83,6 +90,10 @@ class StoresController < ApplicationController
           @photo_counter.push(microposts_photo.micropost_image)
         end
       end
+    end
+
+    def store_like
+      @liked = Like.find_by(user_id: @current_user.id ,store_id: params[:id])
     end
   
 end

@@ -15,6 +15,6 @@
   <div class = "user-links">
     <%= link_to "マイページトップ", user_path, class: "user-link-first" %>
     <%= link_to "レビュー(#{@user_microposts.count})", user_microposts_path, class: "user-link" %>
-    <%= link_to "お気に入りのお店", "#", class: "user-link-last" %>
+    <%= link_to "お気に入りのお店(#{@user_likes.count})", user_likes_path, class: "user-link-last" %>
   </div>
 </div>

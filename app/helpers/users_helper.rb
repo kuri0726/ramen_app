@@ -17,6 +17,14 @@ module UsersHelper
     cookies.delete(:remember_token)
   end
 
+  # def like_store(user, stote)
+  #   if like = Like(user_id: user.id, store_id: store.id)
+
+  #   else
+  #     return false
+  #   end
+  # end
+
   def current_user
     if (user_id = session[:user_id])
       @current_user ||= User.find_by(id: user_id)

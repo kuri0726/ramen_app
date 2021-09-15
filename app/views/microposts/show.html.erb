@@ -17,12 +17,18 @@
               </div>
             </div>
             <div class = "micropost-body">
+              
               <% if @micropost.store_image.attached? %>
                 <%= image_tag @micropost.store_image, width:"200px", height:"200px" %>
               <% else %>
                 <%= image_tag "/seed_image/#{@micropost.micropost_image}", width:"200px", height:"200px" %>
               <% end %>                
               <div class = "micropost-content">
+                <div class = "micropost-data">
+                  <p>来店日: <%= @micropost.visit_date %></p>
+                  <p>来店時間: <%= @micropost.visit_time.strftime( "%H:%M" ) %></p>
+                  <p>待ち時間: 約<%= @micropost.waiting_time %>分</p>
+                </div>
                 <p><%= longtext(@micropost.content)%></p>
               </div>
             </div>

@@ -3,6 +3,20 @@
   <div>
     <h1><%= @store.name %></h1>
     <p><%= @store.kana%></p> 
+    <div class = "store-like">
+      <%= render "shared/avg_score" %>
+      <h3>登録者数(<%= @store.likes.count %>)</h3>
+      <% if @liked %>
+        <%= form_with(url: store_unlike_path, html: { method: :delete }, remote: true) do |f| %>
+          <%= f.submit "お気に入り店", class: "register unlike" %>
+        <% end %>
+      <% else %>
+        <%= form_with(url: store_like_path, html: { method: :post }, remote: true) do |f| %>
+          <div><%= hidden_field_tag :user_id, @current_user.id %></div>
+          <%= f.submit "お気に入り登録する", class: "register like" %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 <div class = "store-links">

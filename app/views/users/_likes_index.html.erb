@@ -1,0 +1,24 @@
+<% if @likes.count != 0 %>
+  <% @likes.each do |like| %>
+    <div class = "index-object">
+      <div class = "searched-store-score">
+        <% if like.store.microposts.empty? %>
+          <h5 class = "no-microposts" >投稿なし</h5>
+        <% else %>
+          <h5>平均点</h5>
+          <h5><%= avg_score(like.store) %>点</h5>
+        <% end %>
+      </div>
+      <%= image_tag like.store.store_image.attached? ? like.store.store_image : "/no_image.png", width:"80px", height:"80px" %>
+      <div class = "searched-store-info">
+        <%= link_to like.store.name, store_path(like.store) %>
+        <p><%= like.store.address %></p>
+          <h5>お気に入り数: <%= like.store.microposts.count %></h5>
+          <h5>写真: <%= photos_counter(like.store) %></h5>
+          <h5>投稿数: <%= like.store.microposts.count %></h5>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <%= render "shared/no_likes" %>
+<% end %>

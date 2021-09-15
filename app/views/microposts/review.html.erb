@@ -25,12 +25,12 @@
           <p>&nbsp;</p>
 
           <%= f.label :score, "点数" %>
-          <%= f.collection_select :score, SelectScore.all, :id, :select_score, {prompt: "選ぶ"} %>
+          <%= f.collection_select :score, SelectScore.all, :select_score, :select_score, {prompt: "選ぶ"} %>
           <p style="color: red;"><%= @micropost.errors.full_messages_for(:score).first %>
           <p>&nbsp;</p>
 
           <%= f.label :waiting_time, "待ち時間" %>
-          <%= f.collection_select :waiting_time, SelectTime.all, :id, :select_time, {prompt: "選ぶ"} %>
+          <%= f.collection_select :waiting_time, SelectTime.all, :select_time, :select_time, {prompt: "選ぶ"} %>
           <p>※おおよそで構いませんので、お店に到着してから着丼までの時間を選択してください。</p>
           <p style="color: red;"><%= @micropost.errors.full_messages_for(:waiting_time).first %>
           <p>&nbsp;</p>  

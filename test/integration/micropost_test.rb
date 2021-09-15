@@ -4,7 +4,6 @@ class MicropostIndexTest < ActionDispatch::IntegrationTest
 
   def setup
     @admin_user = users(:yamada)
-    @no_microposts_user = users(:tanaka)
     @store = stores(:ramen1)
     @micropost_content50 = microposts(:micropost3)
     @micropost_content200 = microposts(:micropost2)
@@ -30,15 +29,6 @@ class MicropostIndexTest < ActionDispatch::IntegrationTest
     end
     assert_not flash.empty?
     assert_redirected_to user_path(@admin_user)
-  end
-
-  test "other user shouldn't delete microposts" do
-    log_in_as(@no_microposts_user)
-    get micropost_path(@micropost_content200)
-    assert_select "a", text: "投稿を削除する" ,count: 0
-    assert_no_difference "Micropost.count" do
-      delete micropost_path(@micropost_content200)
-    end
   end
 
 end

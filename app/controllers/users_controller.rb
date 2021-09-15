@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-  before_action :logged_in_user, {only: [:edit, :update, :index, :show, :destroy, :microposts]}
-  before_action :user_info, {only: [:edit, :update, :show, :destroy, :microposts]}
+  before_action :logged_in_user, {only: [:edit, :update, :index, :show, :destroy, :microposts, :likes]}
+  before_action :user_info, {only: [:edit, :update, :show, :destroy, :microposts, :likes]}
   before_action :correct_user_edit, {only: [:edit, :update]}
   before_action :correct_user_destoy, {only: [:destroy]}
   before_action :admin_user, {only: [:index]}
@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def show
     @store = Store.find_by(id: params[:id])
     @recent_microposts = @user.user_feed.limit(3)
+    @likes = Like.where(user_id: params[:id]).limit(3)
   end
 
   def index
@@ -94,6 +95,10 @@ class UsersController < ApplicationController
       end
   end
 
+  def likes
+    @likes = Like.where(user_id: params[:id]).paginate(page: params[:page], per_page: 15)
+  end
+
   def microposts
     @microposts = @user.user_feed.paginate(page: params[:page], per_page: 10)
   end
@@ -107,6 +112,7 @@ class UsersController < ApplicationController
     def user_info
       @user = User.find(params[:id])
       @user_microposts = @user.user_feed
+      @user_likes = Like.where(user_id: params[:id])
     end
 
     def correct_user_edit

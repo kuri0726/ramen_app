@@ -12,6 +12,13 @@ tanaka:
   admin: false
   image: default_icon.jpg
 
+suzuki:
+  name:  SuzukiShun
+  email: suzuki@example.com
+  password_digest: <%= User.digest('1234Aa') %>
+  admin: false
+  image: default_icon.jpg
+
 <% 50.times do |n| %>
 user_<%= n %>:
   name: <%= "User0#{n}" %>

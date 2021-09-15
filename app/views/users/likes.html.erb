@@ -1,0 +1,13 @@
+<div class = "container">
+  <%= render "users/user"%>
+  <div class = "browsing-history">
+    <h2>最近のお気に入り店</h2>
+    <div class = "index-form compact">
+      <%= will_paginate @likes, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;', inner_window: 1, outer_window: 0 %>
+      <div class = "index-objects">
+        <%= render "users/likes_index" %>
+      </div>
+      <%= will_paginate @likes, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;', inner_window: 1, outer_window: 0 %>
+    </div>
+  </div>
+</div>

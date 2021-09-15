@@ -1,7 +1,15 @@
 <div class = "container">
   <%= render "users/user"%>
   <div class = "browsing-history">
-    <h2>最近閲覧したお店</h2>
+    <h2>最近のお気に入り店</h2>
+    <div class = "index-form compact">
+      <div class = "index-objects">
+        <%= render "users/likes_index" %>
+        <% if @user_likes.count > 3 %>
+          <%= link_to "他のお店も見る", user_likes_path, class: "btn btn-review" %>
+        <% end %>
+      </div>
+    </div>
   </div>
   <div class = "recent-post">
     <h2>最近の投稿</h2>

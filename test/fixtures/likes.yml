@@ -1,0 +1,39 @@
+one:
+  store: ramen1
+  user: yamada
+  created_at: <%= 10.minutes.ago %>
+
+two:
+  store: ramen2
+  user: yamada
+  created_at: <%= 10.minutes.ago %>
+  
+three:
+  store: store_1
+  user: yamada
+  created_at: <%= 10.minutes.ago %>
+
+most_recent:
+  store: store_2
+  user: yamada
+  created_at: <%= Time.zone.now %>
+
+four:
+  store: store_2
+  user: tanaka
+  created_at: <%= 10.minutes.ago %>
+
+five:
+  store: ramen1
+  user: tanaka
+  created_at: <%= 10.minutes.ago %>
+
+six:
+  store: ramen2
+  user: tanaka
+  created_at: <%= 10.minutes.ago %>
+  
+seven:
+  store: store_1
+  user: tanaka
+  created_at: <%= 10.minutes.ago %>
