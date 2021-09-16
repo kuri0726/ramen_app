@@ -112,27 +112,40 @@ a{
 
 header {
   background-color: $my-orange;
-  height: 80px;
+  height: 90px;
   >.container {
     background-color: $my-orange;
   }
-  .header-links{
-    .links-left{
+  .header-links {  
+    .links-left {
       float: left;
     }
     .links-right {
       padding-top: 55px;
-      .first-link {
-        border-left: 2px solid rgb(119, 119, 119);
+      .heacer-search {
+        display: flex;
+        .search-input.header {
+          width: 200px;
+          height: 24px;
+          line-height: 24px;
+        }
+        input {
+          line-height: 16px;
+        }
       }
-      li {
-        border-right: 2px solid rgb(119, 119, 119);
-        padding: 0 20px;
-        float: right;
-        font-size: 18px;
-        font-weight: bold;
-        text-decoration: none;
+      a {
+        margin-right: 5px;
       }
+    }
+    li {
+      border-right: 2px solid rgb(119, 119, 119);
+      padding: 0 20px;
+      float: right;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    li.first {
+      border-left: 2px solid rgb(119, 119, 119);
     }
   }
 }
@@ -140,6 +153,8 @@ header {
 .raimon {
   display: flex;
   margin-top: -5px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .logo {
@@ -148,7 +163,6 @@ header {
 
 //error_message
 div.field_with_errors {
-  
   padding: 2px;
   border-radius: 0.3px;
   input, select, textarea {
@@ -161,7 +175,7 @@ div.field_with_errors {
 .home {
   background-color: $my-orange;
   margin: -17px auto 0 auto;
-  width: 2000px;
+  width: 1900px;
   img {
     width: 100%;
     opacity: 0.7;
@@ -194,7 +208,7 @@ div.field_with_errors {
   }
   .app-top-info{
     width: 1000px;
-    margin:100px auto 0 auto;
+    margin: 80px auto 0 auto;
     p {
       text-shadow:$shadow2;
       font-size: 28px;
@@ -666,7 +680,6 @@ div.field_with_errors {
       }
     }
     .micropost-body {
-      width: 100%;
       display: flex;
       margin: 10px 5px;
       .micropost-content {  

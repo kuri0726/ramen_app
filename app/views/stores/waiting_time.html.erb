@@ -4,6 +4,36 @@
     <%= render "stores/store" %>
     <h1 class = "page-title">待ち時間予測</h1>
 
+    <div class = "search-form">
+      <h1>曜日・時間帯で待ち時間予測を調べる</h1>
+      <%= form_with url: search_path, method: :get, local: true do |f| %>
+        <%= f.text_field :keyword, class: "search-input", value: @keyword %>
+        <section>
+          <%= f.submit "検索", class: "btn btn-search" %>
+        </section>
+      <% end %>
+    </div>
+
+    <%
+=begin%>
+ <div class = "index-form compact">
+      <%= will_paginate @stores, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;', inner_window: 1, outer_window: 0 %>
+        <div class = "index-objects">
+          <% if @stores.count != 0 %>
+            <%= render "search/store_index" %>
+          <% else %>
+            <%= render "search/no_results" %>
+          <% end %>
+        </div>
+      <%= will_paginate @stores, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;', inner_window: 1, outer_window: 0 %>
+    </div> 
+<%
+=end%>
+  </h1>
+</div>
+
+
+
     <div class = "review-form">
       <%= link_to "このお店のレビューをする", "/microposts/review/#{@store.id}", class: "btn btn-review" %>
     </div>

@@ -30,15 +30,24 @@
                 </ul>
               </li>
             <% end %>
+            <li class = "first">
+              <div class = "heacer-search">
+                <%= link_to "検索", search_path %>
+                <%= form_with url: search_path, method: :get, local: true do |f| %>
+                  <%= f.text_field :keyword, class: "search-input header", value: @keyword, placeholder:"キーワード" %>
+                  <%= f.submit "検索" %>
+                <% end %>
+              <div>
+            </li>
           <% else %>
             <li><%= link_to "ログイン", login_path %></li>
+            <li class = "first"><%= link_to "新規登録", "/signup" %></li>
           <% end %>
-          <li class = "first-link"><%= link_to "検索", search_path %></li>
         </ul>
       </div>
     </div>
   </div>
   <div class = "raimon">
-    <%= image_tag '/layout/雷文.png' %><%= image_tag '/layout/雷文.png' %><%= image_tag '/layout/雷文.png' %><%= image_tag '/layout/雷文.png' %>
+    <%= image_tag '/layout/雷文.png' %><%= image_tag '/layout/雷文.png' %>
   </div>
 </header>
