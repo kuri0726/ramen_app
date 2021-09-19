@@ -81,6 +81,21 @@ end
   SelectTime.create!(select_time: 5*n)
 end
 
+2.times do |n|
+  week = ["平日", "土日"]
+  Week.create!(select_week: week[n], week_number: n)
+end
+
+24.times do |n|
+
+  between = "#{n}時台"
+  
+  time = Time.new(2021, 01, 01, 00, 00, 00, '+00:00')
+  from_to = time +  1 * n.hours
+  
+  FromTo.create!(between: between, from_to: from_to)
+end
+
 600.times do |n|
   menus = ["つけめん 小 180g/￥900 並",
     "中華そば 中 260g/￥980",
@@ -147,8 +162,8 @@ end
   end
 
   score = rand(50..100)
-  time_from = Time.parse("10:00")
-  time_to   = Time.parse("24:00")
+  time_from = Time.new(2021, 01, 01, 10, 00, 00, '+00:00')
+  time_to   = Time.new(2021, 01, 01, 23, 59, 59, '+00:00')
   visit_time = Random.rand(time_from .. time_to)
   waiting_time = "#{rand(13)}"+"5"
   store_number = rand(1..20)

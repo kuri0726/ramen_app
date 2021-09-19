@@ -4,6 +4,10 @@
 $shadow1: 0 5px 5px black;
 $shadow2: 1px 0 5px black;
 $my-orange: rgb(253, 220, 130);
+$my-orange2: rgb(221, 176, 27);
+$border-gray: rgb(241, 221, 178);
+
+
 
 body {
   background-color: whitesmoke;
@@ -161,6 +165,10 @@ header {
   margin: 10px;
 }
 
+.heacer-search-btn {
+  border-radius: 4px;
+}
+
 //error_message
 div.field_with_errors {
   padding: 2px;
@@ -284,7 +292,7 @@ div.field_with_errors {
 .profile{
   width: 80%;
   margin: 0 auto 30px auto;
-  border: 2px solid rgb(221, 176, 27);;
+  border: 2px solid $my-orange2;;
   border-radius: 10px;
   .profile-info {
     margin: 20px 0 10px 0;
@@ -298,15 +306,15 @@ div.field_with_errors {
   .user-links {
     margin-top: 50px;
     display: flex;
-    background-color:  rgb(221, 176, 27);
+    background-color:  $my-orange2;
     font-weight: bold;
     border-radius: 0 0 5px 5px;
     .user-link-first {
-      border-right: 0.5px solid rgb(241, 221, 178);
+      border-right: 0.5px solid $border-gray;
       @include user-link-mix
     }
     .user-link {
-      border-right: 0.5px solid rgb(241, 221, 178);
+      border-right: 0.5px solid $border-gray;
       @include user-link-mix
     }
     .user-link-last {
@@ -314,6 +322,7 @@ div.field_with_errors {
     }
   }
 }
+
 .browsing-history h2{
   width: 80%;
   margin: 0 auto;
@@ -371,7 +380,7 @@ div.field_with_errors {
   .store-top {
     display: flex;
     height: 150px;
-    background-color: rgb(221, 176, 27);
+    background-color: $my-orange2;
     border-radius: 10px 10px 0 0;
     h1 {
       font-weight: bold;
@@ -385,12 +394,12 @@ div.field_with_errors {
     font-weight: bold;
     .store-link-first {
       border-radius: 0 0 0 10px;
-      border-right: 0.5px solid rgb(241, 221, 178);
+      border-right: 0.5px solid $border-gray;
       @include store-link-mix;
     }
     .store-link {
       @include store-link-mix;
-      border-right: 0.5px solid rgb(241, 221, 178);
+      border-right: 0.5px solid $border-gray;
     }
     .store-link-last {
       border-radius: 0 0 10px 0;
@@ -399,9 +408,13 @@ div.field_with_errors {
   }
   .store-info{
     margin: 0 auto 30px auto;
-    background-color: rgb(221, 176, 27);
+    background-color: $my-orange2;
     border-radius: 10px;
     padding: 10px;
+    .table-title {
+      font-weight: bold;
+      margin: 10px 0 0 0;
+    }
     .store-table {
       padding: 10px;
       background-color: white;
@@ -425,15 +438,21 @@ div.field_with_errors {
         border: 1px solid rgb(224, 224, 224);
       }
       .b {
-        padding: 5px 10px;
+        padding: 0 10px;
         border-top: 1px dashed rgb(150, 150, 150);
         border-bottom: 1px dashed rgb(150, 150, 150);
         word-break: break-all;
       }
-
+      .c {
+        padding: 0 10px;
+        border: 1px dashed rgb(150, 150, 150);
+        word-break: break-all;
+      }
     }
+  
   }
 }
+
 .store-edit{
   margin: 20px 0 10px 10px;
 }
@@ -493,6 +512,33 @@ div.field_with_errors {
   border:1px solid #16c498;
   box-shadow: 0 3px #11966a;
   text-decoration: none;
+}
+
+.waiting_time {
+  display: flex;
+  margin: 30px auto 0;
+  width: 90%;
+  .search-form{
+    padding: 10px;
+    width: 45%;
+    height: 350px;
+    select {
+      width: 50%;
+    }
+  }
+  .microposts-lists{
+    width: 50%;
+  }
+}
+.waiting_time_result {
+  width: 60%;
+  margin: 0 auto 100px;
+  padding: 40px;
+  border:2px solid rgb(177, 126, 17);
+  border-radius: 10px;
+  h3 {
+    border-bottom: 3px double rgb(119, 119, 119);;
+  }
 }
 
 //index
@@ -565,7 +611,7 @@ div.field_with_errors {
   text-align: center;
   .index-objects {
     margin: 30px auto;
-    background-color: rgb(221, 176, 27);
+    background-color: $my-orange2;
     border-radius: 10px;
     padding: 10px;
     .index-object {
@@ -646,7 +692,7 @@ div.field_with_errors {
     width: 100%;
     .micropost-top {
       display: flex;
-      border-bottom: 1px solid rgb(221, 176, 27);
+      border-bottom: 1px solid $my-orange2;
       h3 {
         display: block;
         margin: 5px;
@@ -683,14 +729,14 @@ div.field_with_errors {
       display: flex;
       margin: 10px 5px;
       .micropost-content {  
-         width: 100%;
+          width: 100%;
         p { 
           margin: 0px;
           font-size: 15px;
           text-overflow: ellipsis;
         }
         .micropost-data {
-          border-bottom: 1px solid rgb(221, 176, 27);
+          border-bottom: 1px solid $my-orange2;
           margin-bottom: 5px;
         }
       }

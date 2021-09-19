@@ -6,6 +6,8 @@ class StoresController < ApplicationController
   before_action :photo_index, {only: [:show, :microposts, :photos, :waiting_time]}
   before_action :store_like, {only: [:show, :microposts, :photos, :waiting_time]}
 
+  include StoresHelper
+
   def show
   end
 
@@ -55,9 +57,31 @@ class StoresController < ApplicationController
   def photos
   end
 
-  def waiting_time
+  5.times do |i|
+    instance_variable_set('@microposts_' + i.to_s, (i + 1) * 2)
   end
-  
+
+  def waiting_time
+    24.times do |n|
+      instance_variable_set('@microposts_' + n.to_s, @store.microposts.microposts_counter(n).count)
+    end
+    if (params[:week].nil? && params[:time].nil?) || (params[:week] == "" && params[:time] == "")
+      @waiting_time = "レビューなし"
+      @time = "未選択"
+      @week = "未選択"
+    else
+      if @store.microposts.set_time(params[:time]).set_week(params[:week]).average(:waiting_time)
+        waiting_time = @store.microposts.set_time(params[:time]).set_week(params[:week]).average(:waiting_time).round
+        @waiting_time = "推定 #{waiting_time}分"
+      else
+        @waiting_time = "レビューなし"
+      end
+      select_week(params[:week])
+      select_from_to(params[:time])
+    end
+    render "/stores/waiting_time"
+  end
+
   private
 
     def store_params

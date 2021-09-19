@@ -3,39 +3,35 @@
   
     <%= render "stores/store" %>
     <h1 class = "page-title">待ち時間予測</h1>
-
-    <div class = "search-form">
-      <h1>曜日・時間帯で待ち時間予測を調べる</h1>
-      <%= form_with url: search_path, method: :get, local: true do |f| %>
-        <%= f.text_field :keyword, class: "search-input", value: @keyword %>
+    <div class = "waiting_time">
+      <div class = "search-form">
+        <h4>レビューの情報をもとに</h4>
+        <h2>時間帯・曜日で</h2>
+        <h2>待ち時間を調べる</h2>
+        <p>※時間帯だけ・曜日だけの選択でも検索できます。</p>
+        <%= form_with url: store_waiting_time_path, method: :get, local: true do |f| %>
+        <section>
+        <%= f.label :time, "時間帯" %>
+          <%= f.collection_select :time, FromTo.all, :from_to, :between, {prompt: "選ぶ"}, class: "search-input" %>
+        <section>
+        <section>
+          <%= f.label :week, "曜日" %>
+          <%= f.collection_select :week, Week.all, :week_number, :select_week, {prompt: "選ぶ"}, class: "search-input" %>
+        </section>
         <section>
           <%= f.submit "検索", class: "btn btn-search" %>
         </section>
-      <% end %>
+        <% end %>
+      </div>
+      <div class = "microposts-lists">
+        <%= render "stores/lists" %>
+      </div>
     </div>
-
-    <%
-=begin%>
- <div class = "index-form compact">
-      <%= will_paginate @stores, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;', inner_window: 1, outer_window: 0 %>
-        <div class = "index-objects">
-          <% if @stores.count != 0 %>
-            <%= render "search/store_index" %>
-          <% else %>
-            <%= render "search/no_results" %>
-          <% end %>
-        </div>
-      <%= will_paginate @stores, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;', inner_window: 1, outer_window: 0 %>
-    </div> 
-<%
-=end%>
-  </h1>
-</div>
-
-
-
-    <div class = "review-form">
-      <%= link_to "このお店のレビューをする", "/microposts/review/#{@store.id}", class: "btn btn-review" %>
+    <div class = "waiting_time_result">
+      <h3>検索結果</h3>
+      <h2>待ち時間: <%= @waiting_time %></h2>
+      <h2>時間帯: <%= @time %></h2>
+      <h2>曜日: <%= @week %></h2>
     </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 micropost1:
   ate_food: 醤油らーめん
   visit_date: 2021-09-01
-  visit_time: 2000-01-01 02:16:00
+  visit_time: 2000-01-01 20:16:00.829242
   score: 85
   waiting_time: 15
   content: 醤油らーめんおいしい！
@@ -12,8 +12,8 @@ micropost1:
 
 micropost2:
   ate_food: 塩らーめん
-  visit_date: 2021-09-01
-  visit_time: 2000-01-01 02:16:00
+  visit_date: 2021-09-04
+  visit_time: 2000-01-01 10:16:00.829242
   score: 70
   waiting_time: 35
   content: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -25,7 +25,7 @@ micropost2:
 micropost3:
   ate_food: 豚骨らーめん
   visit_date: 2021-09-01
-  visit_time: 2000-01-01 02:16:00
+  visit_time: 2000-01-01 10:16:00.829242
   score: 100
   waiting_time: 50
   content: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -37,7 +37,7 @@ micropost3:
 most_recent:
   ate_food: 味噌らーめん
   visit_date: 2021-09-01
-  visit_time: 2000-01-01 02:16:00
+  visit_time: 2000-01-01 22:16:00.829242
   score: 80
   waiting_time: 10
   content: 味噌らーめんおいしい！
@@ -50,7 +50,7 @@ most_recent:
 micropost_<%= n %>:
   ate_food: 味噌らーめん
   visit_date: 2021-09-01
-  visit_time: 2000-01-01 02:16:00
+  visit_time: 2000-01-01 02:16:00.829242
   score: <%= n %>
   waiting_time: 10
   content: 味噌らーめんおいしい！
