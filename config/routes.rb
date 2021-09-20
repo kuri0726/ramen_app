@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+
   get '/search' => "search#search"
-  get 'stores/show'
-  get 'store/store'
-  get 'users/show'
+
+  get 'done', to: 'contacts#done', as: 'done'
 
   root "home#home"
   get "/users/likes/:id" => "users#likes", as: "user_likes"
@@ -23,5 +23,6 @@ Rails.application.routes.draw do
 
   resources :users
   resources :stores
+  resources :contacts,  only: [:new, :create]
   resources :microposts,  only: [:show, :destroy]
 end

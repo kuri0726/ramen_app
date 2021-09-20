@@ -15,7 +15,6 @@ body {
 
 li{
   list-style: none;
-  text-decoration: none;
 }
 
 a{
@@ -266,6 +265,16 @@ div.field_with_errors {
   background-color: #0099B5;
   border:1px solid #086677;
   box-shadow: 0 5px #086677;
+}
+
+//お問い合わせフォーム
+
+.done {
+  width: 80%;
+  padding: 50px 0;
+  margin: 10px auto;
+  text-align: center;
+  background-color: blanchedalmond;
 }
 
 //新規登録画面
@@ -610,7 +619,7 @@ div.field_with_errors {
   border-radius: 10px;
   text-align: center;
   .index-objects {
-    margin: 30px auto;
+    margin: 30px auto 20px;
     background-color: $my-orange2;
     border-radius: 10px;
     padding: 10px;
@@ -744,7 +753,12 @@ div.field_with_errors {
   }
 }
 
-
+.back-btn {
+  font-weight: bold;
+  float: right;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
 
 .review-store-link {
   text-align: center;

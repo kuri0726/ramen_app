@@ -35,10 +35,12 @@
           </div>
         </div>
       </div>
+      <%= link_to :back, class: "back-btn" do %>
+        <i class="fas fa-reply">戻る</i>
+      <% end %>  
     </div>
-    <%= link_to "戻る", :back %>
-    <% if @current_user.id == @micropost.user.id %>
-      <%= link_to "投稿を削除する", @micropost, method: :delete, data: {confirm: "この投稿に削除しますか？"}, class: "btn micropost-delete" %>
-    <% end %>
+      <% if @current_user.id == @micropost.user.id %>
+        <%= link_to "投稿を削除する", @micropost, method: :delete, data: {confirm: "この投稿に削除しますか？"}, class: "btn micropost-delete" %>
+      <% end %>
   </div>
 </div>

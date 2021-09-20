@@ -1,0 +1,39 @@
+<% provide(:top_text, "ーお問い合わせー") %>
+<div class = "container">
+  <div class = "input-form">
+
+  <%= form_with(model: @contact, local: true) do |f| %>
+
+    <%= f.label :name, "お名前" %>
+    <%= f.text_field :name, class: 'form-control' %>
+    <% if @contact.errors.include?(:name) %>
+      <p style="color: red;"><%= @contact.errors.full_messages_for(:name).first %>
+    <% end %>
+    <p>※12文字以内で入力してください。</p>
+
+    <%= f.label :email, "メールアドレス" %>
+    <%= f.email_field :email, class: 'form-control' %>
+    <% if @contact.errors.include?(:email) %>
+      <p style="color: red;"><%= @contact.errors.full_messages_for(:email).first %>
+    <% end %>
+    <p>&nbsp;</p>
+    
+    <%= f.label :subject, "件名" %>
+    <%= f.text_field :subject, class: 'form-control' %>
+    <% if @contact.errors.include?(:subject) %>
+      <p style="color: red;"><%= @contact.errors.full_messages_for(:subject).first %>
+    <% end %>
+    <p>&nbsp;</p>
+
+    <%= f.label :message, "お問い合わせ内容" %>
+    <%= f.text_area :message, rows: 10 , placeholder:"お問い合わせ内容", class: 'form-control' %>
+    <p style="color: red;"><%= @contact.errors.full_messages_for(:message).first %>
+
+    <div class = "input-submit">
+      <%= f.submit "送信する", data: {confirm: "この内容で送信しますか？"} %>
+    </div>
+  
+  <% end %>
+
+  </div>
+</div>
