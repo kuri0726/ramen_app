@@ -11,6 +11,7 @@ class MicropostsController < ApplicationController
   def create
     @store = Store.find_by(id: params[:id])
     @micropost = @current_user.microposts.build(micropost_params)
+    @micropost.week = params[:micropost][:visit_date].to_time.wday
     @micropost.micropost_image = "no_image.png"
     if @micropost.save
       if params[:micropost][:store_image]

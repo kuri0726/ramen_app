@@ -29,9 +29,9 @@ class ActiveSupport::TestCase
   def avg_waiting_time(store, time, week)
     time == "" ? from_to = "00:00:00".."23:59:59" : from_to = "#{time}:00:00".."#{time}:59:59"
     if week == "0"
-      store.microposts.where([%(strftime('%w', visit_date) in (?) or strftime('%w', visit_date) in (?) or strftime('%w', visit_date) in (?) or strftime('%w', visit_date) in (?) or strftime('%w', visit_date) in (?)), "1", "2", "3", "4", "5"]).where(visit_time: from_to).average(:waiting_time).round
+      store.microposts.where(["week = ? OR week = ? OR week = ? OR week = ? OR week = ?", 1, 2, 3, 4, 5]).where(visit_time: from_to).average(:waiting_time).round
     elsif week == "1"
-      store.microposts.where([%(strftime('%w', visit_date) in (?) or strftime('%w', visit_date) in (?)), "0", "6"]).where(visit_time: from_to).average(:waiting_time).round
+      store.microposts.where(["week = ? OR week = ?", 0, 6]).where(visit_time: from_to).average(:waiting_time).round
     else
       store.microposts.where(visit_time: from_to).average(:waiting_time).round
     end

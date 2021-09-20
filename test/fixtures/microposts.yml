@@ -9,6 +9,7 @@ micropost1:
   user: yamada
   store: ramen1
   micropost_image: S__35323926.jpg
+  week: 3
 
 micropost2:
   ate_food: 塩らーめん
@@ -21,6 +22,7 @@ micropost2:
   user: yamada
   store: ramen1
   micropost_image: S__35323926.jpg
+  week: 6
 
 micropost3:
   ate_food: 豚骨らーめん
@@ -33,6 +35,7 @@ micropost3:
   user: yamada
   store: ramen1
   micropost_image: no_image.png
+  week: 3
 
 most_recent:
   ate_food: 味噌らーめん
@@ -45,6 +48,7 @@ most_recent:
   user: yamada
   store: ramen1
   micropost_image: no_image.png
+  week: 3
 
 <% 50.times do |n| %>
 micropost_<%= n %>:
@@ -58,4 +62,5 @@ micropost_<%= n %>:
   user: yamada
   store: ramen1
   micropost_image: no_image.png
+  week: 3
 <% end %>

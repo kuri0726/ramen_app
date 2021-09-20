@@ -167,6 +167,7 @@ end
   visit_time = Random.rand(time_from .. time_to)
   waiting_time = "#{rand(13)}"+"5"
   store_number = rand(1..20)
+  week = visit_date.to_time.wday
 
   if n > 100
     image = "S__#{rand(35323937..35324028)}.jpg"
@@ -183,6 +184,7 @@ end
     store_id: store_number,
     created_at: visit_date,
     micropost_image: image,
+    week: week,
     content: contents[rand(0..3)])  
 end
 

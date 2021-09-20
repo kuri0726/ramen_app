@@ -26,7 +26,7 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get microposts_path(@store)
     assert_no_difference "Micropost.count" do
-      post "/microposts/review/#{@store.id}", params: { micropost: {ate_food: "", visit_date: "", visit_time: "2000-01-01 02:16:00", score: 30, waiting_time: 10, content: "So good!!", store_id: @store.id, user_id: @user.id} }
+      post "/microposts/review/#{@store.id}", params: { micropost: {ate_food: "", visit_date: "2000-01-01", visit_time: "2000-01-01 02:16:00", score: 30, waiting_time: 10, content: "So good!!", store_id: @store.id, user_id: @user.id, week: ""} }
     end
     assert_not flash.empty?
   end

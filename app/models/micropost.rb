@@ -24,9 +24,9 @@ class Micropost < ApplicationRecord
 
   def self.set_week(week)
     if week == "1"
-      where("strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ?", "0", "6")
+      where(["week = ? OR week = ?", 0, 6])
     elsif week == "0"
-      where("strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ?",  "1", "2", "3", "4", "5")
+      where(["week = ? OR week = ? OR week = ? OR week = ? OR week = ?", 1, 2, 3, 4, 5])
     else
       all
     end
@@ -34,28 +34,25 @@ class Micropost < ApplicationRecord
 
   def self.microposts_counter(n)
     if n == 0
-      where("strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ?",  "1", "2", "3", "4", "5").where(visit_time: "00:00:00".."09:59:59")
+      where(["week = ? OR week = ? OR week = ? OR week = ? OR week = ?", 1, 2, 3, 4, 5]).where(visit_time: "00:00:00".."09:59:59")
     elsif n == 1
-      where("strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ?", "0", "6").where(visit_time: "00:00:00".."09:59:59")
+      where(["week = ? OR week = ?", 0, 6]).where(visit_time: "00:00:00".."09:59:59")
     elsif n == 2
-      where("strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ?",  "1", "2", "3", "4", "5").where(visit_time: "15:00:00".."17:59:59")
+      where(["week = ? OR week = ? OR week = ? OR week = ? OR week = ?", 1, 2, 3, 4, 5]).where(visit_time: "15:00:00".."17:59:59")
     elsif n == 3
-      where("strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ?", "0", "6").where(visit_time: "15:00:00".."17:59:59")
+      where(["week = ? OR week = ?", 0, 6]).where(visit_time: "15:00:00".."17:59:59")
     elsif n == 4
-      where("strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ?",  "1", "2", "3", "4", "5").where(visit_time: "22:00:00".."23:59:59")
+      where(["week = ? OR week = ? OR week = ? OR week = ? OR week = ?", 1, 2, 3, 4, 5]).where(visit_time: "22:00:00".."23:59:59")
     elsif n == 5
-      where("strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ?", "0", "6").where(visit_time: "22:00:00".."23:59:59")
+      where(["week = ? OR week = ?", 0, 6]).where(visit_time: "22:00:00".."23:59:59")
     elsif n >= 6 && n < 11
-      where("strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ?",  "1", "2", "3", "4", "5").where(visit_time: "#{n + 4}:00:00".."#{n + 4}:59:59")
+      where(["week = ? OR week = ? OR week = ? OR week = ? OR week = ?", 1, 2, 3, 4, 5]).where(visit_time: "#{n + 4}:00:00".."#{n + 4}:59:59")
     elsif n >= 11 && n < 16
-      where("strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ?", "0", "6").where(visit_time: "#{n - 1}:00:00".."#{n - 1}:59:59")
+      where(["week = ? OR week = ?", 0, 6]).where(visit_time: "#{n - 1}:00:00".."#{n - 1}:59:59")
     elsif n >= 16 && n < 20
-      where("strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ?",  "1", "2", "3", "4", "5").where(visit_time: "#{n + 2}:00:00".."#{n + 2}:59:59")
+      where(["week = ? OR week = ? OR week = ? OR week = ? OR week = ?", 1, 2, 3, 4, 5]).where(visit_time: "#{n + 2}:00:00".."#{n + 2}:59:59")
     elsif n >= 20 && n < 24
-      where("strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ?", "0", "6").where(visit_time: "#{n - 4}:00:00".."#{n - 4}:59:59")
+      where(["week = ? OR week = ?", 0, 6]).where(visit_time: "#{n - 4}:00:00".."#{n - 4}:59:59")
     end
   end
 end
-
-# # s.microposts.where("strftime('%d/%m/%Y', date_time) = ?", "0")
-# ss = s.microposts.where("strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ? or strftime('%w', visit_date) = ?",  "1", "2", "3", "4", "5")  

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_19_100611) do
+ActiveRecord::Schema.define(version: 2021_09_20_100703) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2021_09_19_100611) do
     t.integer "score"
     t.integer "waiting_time"
     t.string "micropost_image"
-    t.index ["store_id"], name: "index_microposts_on_store_id"
+    t.integer "week"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
