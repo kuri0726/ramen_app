@@ -16,6 +16,7 @@ class ContactsController < ApplicationController
   end
 
   def done
+    current_user
   end
 
   private
