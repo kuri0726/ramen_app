@@ -77,7 +77,7 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",  # <======= 送信メールサーバーのアドレスを入れる
+    address: "kuri0726@outlook.jp",  # <======= 送信メールサーバーのアドレスを入れる
     port: 587,
     domain: "domain.of.sender.net",  # <===== ぶっちゃけ何でもいい
     authentication: "plain",
