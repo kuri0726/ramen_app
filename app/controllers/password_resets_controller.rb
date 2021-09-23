@@ -47,8 +47,9 @@ class PasswordResetsController < ApplicationController
     end
 
     def valid_user
-      unless @user && @user.authenticated?(:reset, params[:id])
-        redirect_to root_url
+      unless (@user && @user.authenticated?(:reset, params[:id]))
+        flash[:danger] = "ユーザーが異なります。"
+        redirect_to new_password_reset_url
       end
     end
 
