@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
     <%= render 'layouts/head' %>
-  </head>
   <body>
-    
     <%= render 'layouts/header' %>
     <div class = container>
-      <h1 class = "top_text"><%= yield(:top_text) %></h1>
       <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
+      <%= yield %>
     </div>
-    <%= yield %>
     
     <%= render 'layouts/footer' %>
   </body>

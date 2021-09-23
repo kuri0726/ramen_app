@@ -1,8 +1,27 @@
+<% provide(:title, "検索") %>
 <div class = "container">
   <div class = "search-form">
     <h1>店名・住所からお店を調べる</h1>
     <%= form_with url: search_path, method: :get, local: true do |f| %>
       <%= f.text_field :keyword, class: "search-input", value: @keyword %>
+      <section>
+        <h3>並びを変えて検索</h3>
+        <%= f.label :search, "作成日順(デフォルト)"%>
+        <%= f.radio_button :search, :all, checked: true %>
+        &nbsp;
+        &nbsp;
+        <%= f.label :search, "点数順" %>
+        <%= f.radio_button :search, :score %>
+        &nbsp;
+        &nbsp;
+        <%= f.label :search, "投稿数順" %>
+        <%= f.radio_button :search, :post %>
+        &nbsp;
+        &nbsp;
+        <%= f.label :search, "お気に入り登録数順" %>
+        <%= f.radio_button :search, :like %>
+      </section>
+
       <section>
         <%= f.submit "検索", class: "btn btn-search" %>
       </section>

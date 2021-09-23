@@ -19,8 +19,10 @@ class LikesController < ApplicationController
   end
 
   def destroy
+    @store = Store.find_by(id: params[:id])
     Like.find_by(user_id: @current_user.id, store_id: params[:id]).destroy
     respond_to do |format|
+      session[:return_to] = request.referer || store_path(@store)
       format.html { redirect_to session[:return_to] }
       format.js
     end

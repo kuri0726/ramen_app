@@ -1,5 +1,6 @@
-<% provide(:top_text, "ーユーザー一覧ー") %>
+<% provide(:title, "ユーザー一覧") %>
 <div class = "container">
+  <h1 class = "top_text">ーユーザー一覧ー"</h1>
   <div class = "index-form">
     <%= will_paginate @stores, previous_label: '&#8592; &nbsp;前', next_label: '次 &#8594;', inner_window: 1, outer_window: 0 %>
       <div class = "index-objects">

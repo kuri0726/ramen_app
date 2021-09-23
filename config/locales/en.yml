@@ -51,4 +51,17 @@ ja:
         score: 点数
         waiting_time: 待ち時間
         content: コメント
+      contact:
+        name: 名前
+        email: メールアドレス
+        message: お問い合わせ内容
+        subject: 件名
         
+ja:
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "..."

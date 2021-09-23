@@ -1,5 +1,6 @@
-<% provide(:top_text, "ー店舗情報の編集ー") %>
+<% provide(:title, "#{@store.name}の編集") %>
 <div class = "container">
+  <h1 class = "top_text">ー店舗情報の編集ー</h1>
   <div class = "input-form">
     <%= form_with(model: @store, local: true) do |f| %>
 

@@ -1,6 +1,6 @@
+<% provide(:title, @store.name) %>
 <div class = "container">
   <div class = "store-form">
-  
     <%= render "stores/store" %>
     <% if @current_user.admin? %>
       <div class = "store-action">

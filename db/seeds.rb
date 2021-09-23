@@ -18,6 +18,11 @@ User.create!(name:  "RamenMaster",
       image:            image)
 end
 
+Contact.create!(name:  "example user",
+                email: "yamada@example.com",
+                subject: "店舗の追加をお願いします。",
+                message:     "らーめん粋〇〇店。住所・・・。")
+
 50.times do |n|
   day_of_week = ["日","月","火","水","木","金","土"]
   names = [["ラーメン一郎", "らーめん いちろう"],
@@ -87,7 +92,6 @@ end
 end
 
 24.times do |n|
-
   between = "#{n}時台"
   
   time = Time.new(2021, 01, 01, 00, 00, 00, '+00:00')
@@ -96,6 +100,13 @@ end
   FromTo.create!(between: between, from_to: from_to)
 end
 
+50.times do |n|
+  t = rand(1..20)
+  rand(1..10).times do |i|
+    Like.create!(user_id: n + 1, store_id: i + t)
+  end  
+end
+  
 600.times do |n|
   menus = ["つけめん 小 180g/￥900 並",
     "中華そば 中 260g/￥980",

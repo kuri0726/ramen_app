@@ -1,8 +1,9 @@
-<% provide(:top_text, "－店舗登録－") %>
+<% provide(:title, "#{@store.name}の写真一覧") %>
 <div class = "container">
+  <h1 class = "top_text">－店舗登録－</h1>
   <div class = "input-form">
     <%= form_with(model: @store, local: true) do |f| %>
- 
+
       <%= f.label :name, "店名" %>
       <%= f.text_field :name, class: 'form-control' %>
       <% if @store.errors.include?(:name) %>
