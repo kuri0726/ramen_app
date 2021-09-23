@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'password_resets/new'
+  get 'password_resets/edit'
   get '/search' => "search#search"
 
   get 'done', to: 'contacts#done', as: 'done'
@@ -21,8 +23,12 @@ Rails.application.routes.draw do
   get "/stores/store_waiting_time/:id" => "stores#waiting_time", as: "store_waiting_time"
   get "/stores/store_microposts/:id" => "stores#microposts", as: "store_microposts"
 
+  get "/password_resets/sent" => "password_resets#sent", as: "sent"
+
   resources :users
   resources :stores
   resources :contacts,  only: [:new, :create]
   resources :microposts,  only: [:show, :destroy]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
+  
 end

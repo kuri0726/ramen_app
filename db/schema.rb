@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_20_100703) do
+ActiveRecord::Schema.define(version: 2021_09_23_064119) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2021_09_20_100703) do
     t.integer "waiting_time"
     t.string "micropost_image"
     t.integer "week"
+    t.index ["store_id"], name: "index_microposts_on_store_id"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
@@ -113,6 +114,8 @@ ActiveRecord::Schema.define(version: 2021_09_20_100703) do
     t.string "remember_digest"
     t.boolean "admin"
     t.string "image"
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

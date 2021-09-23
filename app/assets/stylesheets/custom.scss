@@ -284,6 +284,7 @@ div.field_with_errors {
 
 //新規登録画面
 //ログイン画面
+//パスワードリセット
 
 .input-form{
   width: 60%;
@@ -299,6 +300,10 @@ div.field_with_errors {
     margin-top: 20px;
     padding-left: 20px;
   }
+}
+
+.password-reset-text {
+  text-align: center;
 }
 
 //マイページ

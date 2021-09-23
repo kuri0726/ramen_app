@@ -17,6 +17,8 @@
         <span>ログインしたままにする。</span>
       <% end %>
 
+      <p>※パスワードを忘れた方は<%= link_to "こちら", new_password_reset_path, style: "font-weight: bold;" %></p>
+
       <div class = "input-submit">
         <%= f.submit "ログイン" %>
       </div>
