@@ -117,5 +117,6 @@ class StoresController < ApplicationController
     def store_like
       @liked = Like.find_by(user_id: @current_user.id ,store_id: params[:id])
     end
+    
   
 end
