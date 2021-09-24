@@ -29,12 +29,16 @@ class ActiveSupport::TestCase
   def avg_waiting_time(store, time, week)
     time == "" ? from_to = "00:00:00".."23:59:59" : from_to = "#{time}:00:00".."#{time}:59:59"
     if week == "0"
-      store.microposts.where(["week = ? OR week = ? OR week = ? OR week = ? OR week = ?", 1, 2, 3, 4, 5]).where(visit_time: from_to).average(:waiting_time).round
+      @waiting_time = store.microposts.where(["week = ? OR week = ? OR week = ? OR week = ? OR week = ?", 1, 2, 3, 4, 5]).where(visit_time: from_to).average(:waiting_time).round
+      @microposts = store.microposts.where(["week = ? OR week = ? OR week = ? OR week = ? OR week = ?", 1, 2, 3, 4, 5]).where(visit_time: from_to).paginate(page: 1)
     elsif week == "1"
-      store.microposts.where(["week = ? OR week = ?", 0, 6]).where(visit_time: from_to).average(:waiting_time).round
+      @waiting_time = store.microposts.where(["week = ? OR week = ?", 0, 6]).where(visit_time: from_to).average(:waiting_time).round
+      @microposts = store.microposts.where(["week = ? OR week = ?", 0, 6]).where(visit_time: from_to).paginate(page: 1)
     else
-      store.microposts.where(visit_time: from_to).average(:waiting_time).round
+      @waiting_time = store.microposts.where(visit_time: from_to).average(:waiting_time).round
+      @microposts = store.microposts.where(visit_time: from_to).paginate(page: 1)
     end
+
   end
   
 end

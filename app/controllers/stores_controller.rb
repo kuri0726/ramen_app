@@ -52,13 +52,10 @@ class StoresController < ApplicationController
   end
 
   def microposts
+    @microposts = @store.store_feed.paginate(page: params[:page], per_page: 10)
   end
 
   def photos
-  end
-
-  5.times do |i|
-    instance_variable_set('@microposts_' + i.to_s, (i + 1) * 2)
   end
 
   def waiting_time
@@ -71,6 +68,7 @@ class StoresController < ApplicationController
       @week = "未選択"
     else
       if @store.microposts.set_time(params[:time]).set_week(params[:week]).average(:waiting_time)
+        @microposts = @store.microposts.set_time(params[:time]).set_week(params[:week]).paginate(page: params[:page], per_page: 10)
         waiting_time = @store.microposts.set_time(params[:time]).set_week(params[:week]).average(:waiting_time).round
         @waiting_time = "推定 #{waiting_time}分"
       else
@@ -90,7 +88,7 @@ class StoresController < ApplicationController
 
     def store_info
       @store = Store.find_by(id: params[:id])
-      @microposts = @store.store_feed.paginate(page: params[:page], per_page: 10)
+      @microposts_count = @store.store_feed.count
       store_microposts = @store.store_feed
       if store_microposts.empty?
         store_microposts = false
