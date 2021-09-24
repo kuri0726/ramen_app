@@ -123,10 +123,10 @@ class UsersController < ApplicationController
     end
 
     def correct_user_destoy
-      @user = User.find(params[:id])
-      unless @current_user.admin?
+      user = User.find(params[:id])
+      if !@current_user.admin? && user.id != @current_user.id
         flash.now[:danger] = "無効な処理です。"
-        redirect_to @current_user unless @user.id == @current_user.id
+        redirect_to @current_user
       end
     end
 

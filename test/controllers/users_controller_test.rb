@@ -5,6 +5,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:yamada)
     @other_user = users(:tanaka)
+    @another_user = users(:suzuki)
   end
 
   test "should get new" do
@@ -48,6 +49,22 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference 'User.count' do
       delete user_path(@user)
     end
+  end
+
+  test "shouldn't delete another user" do 
+    log_in_as(@other_user)
+    assert_difference 'User.count', -1 do
+      delete user_path(@other_user)
+    end
+    assert_redirected_to root_path
+  end
+
+  test "should delete correct user" do 
+    log_in_as(@other_user)
+    assert_no_difference 'User.count' do
+      delete user_path(@another_user)
+    end
+    assert_redirected_to @other_user
   end
 
 end
