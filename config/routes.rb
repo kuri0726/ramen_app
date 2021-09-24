@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'done', to: 'contacts#done', as: 'done'
 
   root "home#home"
+  
   get "/users/likes/:id" => "users#likes", as: "user_likes"
   get "/users/miciroposts/:id" => "users#microposts", as: "user_microposts"
   get "/signup" => "users#new"
