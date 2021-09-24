@@ -89,7 +89,6 @@ class UsersController < ApplicationController
         flash[:success] = "ユーザー情報を削除しました。"
         redirect_to users_path
       else
-        forget_remember_digest(@user)
         session[:user_id] = nil
         redirect_to root_path
       end
