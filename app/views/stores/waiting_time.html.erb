@@ -3,6 +3,7 @@
   <div class = "store-form">
   
     <%= render "stores/store" %>
+
     <h1 class = "page-title">待ち時間予測</h1>
     <div class = "waiting_time">
       <div class = "search-form">
@@ -28,15 +29,17 @@
         <%= render "stores/lists" %>
       </div>
     </div>
-    <div class = "waiting_time_result">
-      <h3>検索結果</h3>
-      <h2>待ち時間: <%= @waiting_time %></h2>
-      <h2>時間帯: <%= @time %></h2>
-      <h2>曜日: <%= @week %></h2>
+    <div class = "waiting_time_form">
+      <div class = "waiting_time_result">
+        <h3>検索結果</h3>
+        <h2>待ち時間: <%= @waiting_time %></h2>
+        <h2>時間帯: <%= @time %></h2>
+        <h2>曜日: <%= @week %></h2>
+      </div>
+      <% unless @microposts.nil? %>
+        <h1 class = "page-title">該当のレビュー</h1>
+        <%= render "microposts/index" %>
+      <% end %>
     </div>
-    <% unless @microposts.nil? %>
-      <h1 class = "page-title">該当のレビュー</h1>
-      <%= render "microposts/index" %>
-    <% end %>
   </div>
 </div>

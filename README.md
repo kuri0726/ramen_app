@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+アプリ名
+らぁ麺インフォメーション
 
-Things you may want to cover:
+◎らぁ麺インフォメーションについて
+各時間帯・曜日ごとに待ち時間の平均を調べることができるラーメンのレビューサイト。
 
-* Ruby version
+◎使い方
+未登録のユーザーはユーザー登録をしてからサイトを利用できるようになります。
+ログイン時にパスワードを忘れてしまった場合は、登録のメールアドレス宛にパスワードリセットのメールが送信されます。
 
-* System dependencies
+ログイン後、気になるラーメン店を店名か住所から検索できます。
+検索は点数順、 投稿数順、お気に入り登録数順に並び変えて検索することもできます。
 
-* Configuration
+各お店のページではレビューを見たり、レビューを投稿できます。
+お気に入りのお店はお気に入り登録ができます。
+また待ち時間予測画面では投稿されたレビューの情報をもとに待ち時間を調べられるようになっています。
+どの曜日・時間帯にレビューがあるのかは投稿履歴の表に情報を掲載しております。
 
-* Database creation
+各ユーザーページではレビューの履歴、お気に入り登録したお店を確認出来るようになっています。
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+◎利用したもの
+・Bootstrap(CSS)
+・bcryp (パスワードのハッシュ化)
+・Font Awwsome (ヘッダーの検索ボタン・レビュー詳細画面の戻るボタンのアイコン)
+・active_storage(画像のアップロード)
+・AWS S3 (投稿の写真やユーザーの写真を保存するため)
+・vagrant (仮想マシンで共有フォルダを作り、Visual Studio Codeでコードを作成しました。)
+・Mailer (お問い合わせフォーム・パスワードリセット)
+・jQuery (お店の写真一覧ページ)
+・faker (ダミーデータの作成)

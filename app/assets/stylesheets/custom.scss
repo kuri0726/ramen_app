@@ -549,14 +549,23 @@ div.field_with_errors {
     width: 50%;
   }
 }
-.waiting_time_result {
-  width: 60%;
-  margin: 0 auto 100px;
-  padding: 40px;
-  border:2px solid rgb(177, 126, 17);
+
+.waiting_time_form {
+  margin: 0 auto;
+  border:2px solid rgb(196, 196, 196);
+  padding: 10px 0;
   border-radius: 10px;
-  h3 {
-    border-bottom: 3px double rgb(119, 119, 119);;
+  background-color: rgb(219, 219, 219);
+  .waiting_time_result {
+    background-color: white;
+    width: 60%;
+    margin: 10px auto;
+    padding: 40px;
+    border:2px solid rgb(202, 202, 202);
+    border-radius: 10px;
+    h3 {
+      border-bottom: 3px double rgb(119, 119, 119);;
+    }
   }
 }
 
