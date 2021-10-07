@@ -22,10 +22,6 @@ gem 'bootstrap-will_paginate', '1.0.0'
 gem 'kaminari'
 gem 'dotenv-rails'
 
-# gem 'mini_magick', '~> 4.10', '>= 4.10.1'
-# gem 'rake', '13.0.6'
-# gem 'rails-i18n'
-
 group :development, :test do
   gem 'sqlite3', '1.4.2'
   gem 'byebug',  '11.0.1', platforms: [:mri, :mingw, :x64_mingw]

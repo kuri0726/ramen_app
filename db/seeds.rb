@@ -1,5 +1,5 @@
 User.create!(name:  "RamenMaster",
-  email: "kuri0726@outlook.jp",
+  email: "ramen-app@example.com",
   password:              "1234Qa",
   password_confirmation: "1234Qa",
   image: "/default_icon.jpg",
