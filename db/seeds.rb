@@ -3,7 +3,7 @@ User.create!(name:  "RamenMaster",
   password:              "1234Qa",
   password_confirmation: "1234Qa",
   image: "/default_icon.jpg",
-  admin:     true)
+  admin:     true) 
 
 99.times do |n|
   name  = Faker::App.name
