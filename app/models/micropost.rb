@@ -52,7 +52,7 @@ class Micropost < ApplicationRecord
     elsif n >= 16 && n < 20
       where(["week = ? OR week = ? OR week = ? OR week = ? OR week = ?", 1, 2, 3, 4, 5]).where(visit_time: "#{n + 2}:00:00".."#{n + 2}:59:59")
     elsif n >= 20 && n < 24
-      where(["week = ? OR week = ?", 0, 6]).where(visit_time: "#{n - 4}:00:00".."#{n - 4}:59:59")
+      where(["week = ? OR week = ?", 0, 6]).where(visit_time: "#{n - 2}:00:00".."#{n - 2}:59:59")
     end
   end
 end
